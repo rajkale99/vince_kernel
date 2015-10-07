@@ -343,12 +343,8 @@ struct usb_xpad {
 
 	int mapping;			/* map d-pad to buttons or to axes */
 	int xtype;			/* type of xbox device */
-<<<<<<< HEAD
-	int pad_nr;			/* the order x360 pads were attached */
-	const char *name;		/* name of the device */
-=======
-	unsigned long led_no;		/* led to lit on xbox360 controllers */
->>>>>>> b92cf9056938... Input: xpad - re-send LED command on present event
+
+	unsigned long pad_nr;		/* the order x360 pads were attached */
 };
 
 /*
@@ -523,10 +519,8 @@ static void xpad360w_process_packet(struct usb_xpad *xpad, u16 cmd, unsigned cha
 	if (data[0] & 0x08) {
 		if (data[1] & 0x80) {
 			xpad->pad_present = 1;
-<<<<<<< HEAD
-=======
+
 			usb_submit_urb(xpad->bulk_out, GFP_ATOMIC);
->>>>>>> b92cf9056938... Input: xpad - re-send LED command on present event
 			/*
 			 * Light up the segment corresponding to
 			 * controller number.
@@ -914,10 +908,6 @@ struct xpad_led {
 };
 
 /**
-<<<<<<< HEAD
- * set the LEDs on Xbox360 / Wireless Controllers
-=======
->>>>>>> 30221037921b... Input: xpad - set the LEDs properly on XBox Wireless controllers
  * @param command
  *  0: off
  *  1: all blink, then previous setting
@@ -968,7 +958,7 @@ static void xpad_send_led_command(struct usb_xpad *xpad, int command)
 
 	usb_submit_urb(xpad->irq_out, GFP_KERNEL);
 	mutex_unlock(&xpad->odata_mutex);
-<<<<<<< HEAD
+
 }
 
 /*
@@ -978,14 +968,6 @@ static void xpad_send_led_command(struct usb_xpad *xpad, int command)
 static void xpad_identify_controller(struct usb_xpad *xpad)
 {
 	xpad_send_led_command(xpad, (xpad->pad_nr % 4) + 2);
-=======
->>>>>>> 30221037921b... Input: xpad - set the LEDs properly on XBox Wireless controllers
-}
-
-static void xpad_identify_controller(struct usb_xpad *xpad)
-{
-	/* Light up the segment corresponding to controller number */
-	xpad_send_led_command(xpad, (xpad->led_no % 4) + 2);
 }
 
 static void xpad_led_set(struct led_classdev *led_cdev,
@@ -999,13 +981,8 @@ static void xpad_led_set(struct led_classdev *led_cdev,
 
 static int xpad_led_probe(struct usb_xpad *xpad)
 {
-<<<<<<< HEAD
 
-	static atomic_t led_seq	= ATOMIC_INIT(-1);
-	unsigned long led_no;
-=======
 	static atomic_t led_seq = ATOMIC_INIT(-1);
->>>>>>> b92cf9056938... Input: xpad - re-send LED command on present event
 	struct xpad_led *led;
 	struct led_classdev *led_cdev;
 	int error;
@@ -1017,14 +994,10 @@ static int xpad_led_probe(struct usb_xpad *xpad)
 	if (!led)
 		return -ENOMEM;
 
-<<<<<<< HEAD
-
-	led_no = atomic_inc_return(&led_seq);
-=======
 	xpad->led_no = atomic_inc_return(&led_seq);
->>>>>>> b92cf9056938... Input: xpad - re-send LED command on present event
+	xpad->pad_nr = atomic_inc_return(&led_seq);
 
-	snprintf(led->name, sizeof(led->name), "xpad%lu", xpad->led_no);
+	snprintf(led->name, sizeof(led->name), "xpad%lu", xpad->pad_nr);
 	led->xpad = xpad;
 
 	led_cdev = &led->led_cdev;
@@ -1035,19 +1008,8 @@ static int xpad_led_probe(struct usb_xpad *xpad)
 	if (error)
 		goto err_free_id;
 
-<<<<<<< HEAD
-	if (xpad->xtype == XTYPE_XBOX360) {
-		/*
-		 * Light up the segment corresponding to controller
-		 * number on wired devices. On wireless we'll do that
-		 * when they respond to "presence" packet.
-		 */
-		xpad_identify_controller(xpad);
-	}
-=======
 	/* Light up the segment corresponding to controller number */
 	xpad_identify_controller(xpad);
->>>>>>> b92cf9056938... Input: xpad - re-send LED command on present event
 
 	return 0;
 
