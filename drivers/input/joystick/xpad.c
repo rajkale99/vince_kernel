@@ -569,13 +569,19 @@ struct usb_xpad {
 	dma_addr_t idata_dma;
 
 	struct urb *irq_out;		/* urb for interrupt out report */
+<<<<<<< HEAD
 
 	struct usb_anchor irq_out_anchor;
 	bool irq_out_active;		/* we must not use an active URB */
 	u8 odata_serial;		/* serial number for xbox one protocol */
 
 	unsigned char *odata;		/* output data */
+=======
+	struct usb_anchor irq_out_anchor;
+	bool irq_out_active;		/* we must not use an active URB */
+>>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 	u8 odata_serial;		/* serial number for xbox one protocol */
+	unsigned char *odata;		/* output data */
 	dma_addr_t odata_dma;
 	spinlock_t odata_lock;
 
@@ -1036,17 +1042,25 @@ static int xpad_try_sending_next_out_packet(struct usb_xpad *xpad)
 	int error;
 
 	if (!xpad->irq_out_active && xpad_prepare_next_out_packet(xpad)) {
+<<<<<<< HEAD
 
 		usb_anchor_urb(xpad->irq_out, &xpad->irq_out_anchor);
 
+=======
+		usb_anchor_urb(xpad->irq_out, &xpad->irq_out_anchor);
+>>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 		error = usb_submit_urb(xpad->irq_out, GFP_ATOMIC);
 		if (error) {
 			dev_err(&xpad->intf->dev,
 				"%s - usb_submit_urb failed with result %d\n",
 				__func__, error);
+<<<<<<< HEAD
 
 			usb_unanchor_urb(xpad->irq_out);
 
+=======
+			usb_unanchor_urb(xpad->irq_out);
+>>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 			return -EIO;
 		}
 
@@ -1089,15 +1103,22 @@ static void xpad_irq_out(struct urb *urb)
 	}
 
 	if (xpad->irq_out_active) {
+<<<<<<< HEAD
 
 		usb_anchor_urb(urb, &xpad->irq_out_anchor);
 
+=======
+		usb_anchor_urb(urb, &xpad->irq_out_anchor);
+>>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 		error = usb_submit_urb(urb, GFP_ATOMIC);
 		if (error) {
 			dev_err(dev,
 				"%s - usb_submit_urb failed with result %d\n",
 				__func__, error);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 			usb_unanchor_urb(urb);
 			xpad->irq_out_active = false;
 		}
@@ -1538,7 +1559,10 @@ static int xpad_start_input(struct usb_xpad *xpad)
 	if (usb_submit_urb(xpad->irq_in, GFP_KERNEL))
 		return -EIO;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 	if (xpad->xtype == XTYPE_XBOXONE) {
 		error = xpad_start_xbox_one(xpad);
 		if (error) {
@@ -1546,7 +1570,10 @@ static int xpad_start_input(struct usb_xpad *xpad)
 			return error;
 		}
 	}
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 
 	return 0;
 }
@@ -1556,6 +1583,7 @@ static void xpad_stop_input(struct usb_xpad *xpad)
 	usb_kill_urb(xpad->irq_in);
 }
 
+<<<<<<< HEAD
 static void xpad360w_poweroff_controller(struct usb_xpad *xpad)
 {
 	unsigned long flags;
@@ -1594,6 +1622,16 @@ static int xpad360w_start_input(struct usb_xpad *xpad)
 	if (error)
 		return -EIO;
 
+=======
+static int xpad360w_start_input(struct usb_xpad *xpad)
+{
+	int error;
+
+	error = usb_submit_urb(xpad->irq_in, GFP_KERNEL);
+	if (error)
+		return -EIO;
+
+>>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 	/*
 	 * Send presence packet.
 	 * This will force the controller to resend connection packets.
@@ -1696,6 +1734,11 @@ static int xpad_init_input(struct usb_xpad *xpad)
 		input_dev->open = xpad_open;
 		input_dev->close = xpad_close;
 	}
+<<<<<<< HEAD
+=======
+
+	__set_bit(EV_KEY, input_dev->evbit);
+>>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 
 	if (!(xpad->mapping & MAP_STICKS_TO_NULL)) {
 		/* set up axes */
@@ -1949,6 +1992,7 @@ static int xpad_suspend(struct usb_interface *intf, pm_message_t message)
 		 * or goes away.
 		 */
 		xpad360w_stop_input(xpad);
+<<<<<<< HEAD
 
 		/*
 		 * The wireless adapter is going off now, so the
@@ -1958,6 +2002,8 @@ static int xpad_suspend(struct usb_interface *intf, pm_message_t message)
 		 */
 		if (auto_poweroff && xpad->pad_present)
 			xpad360w_poweroff_controller(xpad);
+=======
+>>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 	} else {
 		mutex_lock(&input->mutex);
 		if (input->users)
@@ -1980,6 +2026,7 @@ static int xpad_resume(struct usb_interface *intf)
 		retval = xpad360w_start_input(xpad);
 	} else {
 		mutex_lock(&input->mutex);
+<<<<<<< HEAD
 		if (input->users) {
 			retval = xpad_start_input(xpad);
 		} else if (xpad->xtype == XTYPE_XBOXONE) {
@@ -1990,6 +2037,10 @@ static int xpad_resume(struct usb_interface *intf)
 			 */
 			retval = xpad_start_xbox_one(xpad);
 		}
+=======
+		if (input->users)
+			retval = xpad_start_input(xpad);
+>>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 		mutex_unlock(&input->mutex);
 	}
 
