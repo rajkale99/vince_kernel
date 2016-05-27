@@ -1038,9 +1038,13 @@ static bool xpad_prepare_next_out_packet(struct usb_xpad *xpad)
 	if (packet) {
 		memcpy(xpad->odata, packet->data, packet->len);
 		xpad->irq_out->transfer_buffer_length = packet->len;
+<<<<<<< HEAD
 
 		packet->pending = false;
 
+=======
+		packet->pending = false;
+>>>>>>> 898971df513f... Input: xpad - move pending clear to the correct location
 		return true;
 	}
 
@@ -1094,7 +1098,10 @@ static void xpad_irq_out(struct urb *urb)
 	switch (status) {
 	case 0:
 		/* success */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 898971df513f... Input: xpad - move pending clear to the correct location
 		xpad->irq_out_active = xpad_prepare_next_out_packet(xpad);
 		break;
 
