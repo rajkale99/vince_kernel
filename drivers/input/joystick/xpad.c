@@ -1944,6 +1944,7 @@ static int xpad_probe(struct usb_interface *intf, const struct usb_device_id *id
 		goto err_free_in_urb;
 	}
 
+<<<<<<< HEAD
 	ep_irq_in = ep_irq_out = NULL;
 
 	for (i = 0; i < 2; i++) {
@@ -1960,6 +1961,10 @@ static int xpad_probe(struct usb_interface *intf, const struct usb_device_id *id
 
 	if (!ep_irq_in || !ep_irq_out) {
 		error = -ENODEV;
+=======
+	error = xpad_init_output(intf, xpad);
+	if (error)
+>>>>>>> 40b3de594d27... Input: xpad - fix oops when attaching an unknown Xbox One gamepad
 		goto err_free_in_urb;
 	}
 
