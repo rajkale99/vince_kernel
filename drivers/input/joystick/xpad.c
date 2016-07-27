@@ -1643,6 +1643,9 @@ static void xpad_stop_input(struct usb_xpad *xpad)
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d17ca91d929... Input: xpad - power off wireless 360 controllers on suspend
 static void xpad360w_poweroff_controller(struct usb_xpad *xpad)
 {
 	unsigned long flags;
@@ -2057,6 +2060,9 @@ static int xpad_suspend(struct usb_interface *intf, pm_message_t message)
 		 */
 		xpad360w_stop_input(xpad);
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7d17ca91d929... Input: xpad - power off wireless 360 controllers on suspend
 
 		/*
 		 * The wireless adapter is going off now, so the
@@ -2066,8 +2072,11 @@ static int xpad_suspend(struct usb_interface *intf, pm_message_t message)
 		 */
 		if (auto_poweroff && xpad->pad_present)
 			xpad360w_poweroff_controller(xpad);
+<<<<<<< HEAD
 =======
 >>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
+=======
+>>>>>>> 7d17ca91d929... Input: xpad - power off wireless 360 controllers on suspend
 	} else {
 		mutex_lock(&input->mutex);
 		if (input->users)
