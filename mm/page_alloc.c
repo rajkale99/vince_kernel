@@ -1256,6 +1256,7 @@ __rmqueue_fallback(struct zone *zone, unsigned int order, int start_migratetype)
 		area = &(zone->free_area[current_order]);
 		fallback_mt = find_suitable_fallback(area, current_order,
 				start_migratetype, order, &can_steal);
+
 		if (fallback_mt == -1)
 			continue;
 
