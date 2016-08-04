@@ -2007,6 +2007,11 @@ static void xpad_close(struct input_dev *dev)
 static void xpad_set_up_abs(struct input_dev *input_dev, signed short abs)
 {
 	struct usb_xpad *xpad = input_get_drvdata(input_dev);
+<<<<<<< HEAD
+=======
+
+	set_bit(abs, input_dev->absbit);
+>>>>>>> 69fe32cddbc7... Input: xpad - fix some coding style issues
 
 	switch (abs) {
 	case ABS_X:
