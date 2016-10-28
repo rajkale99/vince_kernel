@@ -128,30 +128,11 @@ static const struct xpad_device {
 	u8 mapping;
 	u8 xtype;
 } xpad_device[] = {
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	{ 0x0079, 0x18d4, "GPD Win 2 X-Box Controller", 0, XTYPE_XBOX360 },
-=======
-	{ 0x0079, 0x18d4, "GPD Win 2 Controller", 0, XTYPE_XBOX360 },
->>>>>>> 7c541fe804e2... Input: xpad - add GPD Win 2 Controller USB IDs
-=======
-	{ 0x0079, 0x18d4, "GPD Win 2 X-Box Controller", 0, XTYPE_XBOX360 },
->>>>>>> 964813700881... Input: xpad - fix GPD Win 2 controller name
 	{ 0x044f, 0x0f00, "Thrustmaster Wheel", 0, XTYPE_XBOX },
 	{ 0x044f, 0x0f03, "Thrustmaster Wheel", 0, XTYPE_XBOX },
 	{ 0x044f, 0x0f07, "Thrustmaster, Inc. Controller", 0, XTYPE_XBOX },
 	{ 0x044f, 0x0f10, "Thrustmaster Modena GT Wheel", 0, XTYPE_XBOX },
-=======
-	{ 0x044f, 0x0f07, "Thrustmaster, Inc. Controller", 0, XTYPE_XBOX },
->>>>>>> d87b189bbbd4... Input: xpad - sort supported devices by USB ID
-=======
-	{ 0x044f, 0x0f00, "Thrustmaster Wheel", 0, XTYPE_XBOX },
-	{ 0x044f, 0x0f03, "Thrustmaster Wheel", 0, XTYPE_XBOX },
-	{ 0x044f, 0x0f07, "Thrustmaster, Inc. Controller", 0, XTYPE_XBOX },
-	{ 0x044f, 0x0f10, "Thrustmaster Modena GT Wheel", 0, XTYPE_XBOX },
->>>>>>> bb7169f3ddef... Input: xpad - sync supported devices with XBCD
 	{ 0x044f, 0xb326, "Thrustmaster Gamepad GP XID", 0, XTYPE_XBOX360 },
 	{ 0x045e, 0x0202, "Microsoft X-Box pad v1 (US)", 0, XTYPE_XBOX },
 	{ 0x045e, 0x0285, "Microsoft X-Box pad (Japan)", 0, XTYPE_XBOX },
@@ -159,36 +140,12 @@ static const struct xpad_device {
 	{ 0x045e, 0x0288, "Microsoft Xbox Controller S v2", 0, XTYPE_XBOX },
 	{ 0x045e, 0x0289, "Microsoft X-Box pad v2 (US)", 0, XTYPE_XBOX },
 	{ 0x045e, 0x028e, "Microsoft X-Box 360 pad", 0, XTYPE_XBOX360 },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	{ 0x045e, 0x028f, "Microsoft X-Box 360 pad v2", 0, XTYPE_XBOX360 },
-=======
-=======
-=======
-	{ 0x045e, 0x028f, "Microsoft X-Box 360 pad v2", 0, XTYPE_XBOX360 },
->>>>>>> b9805bd26b77... Input: xpad - sync supported devices with 360Controller
-	{ 0x045e, 0x0291, "Xbox 360 Wireless Receiver (XBOX)", MAP_DPAD_TO_BUTTONS, XTYPE_XBOX360W },
->>>>>>> d87b189bbbd4... Input: xpad - sort supported devices by USB ID
-	{ 0x045e, 0x02d1, "Microsoft X-Box One pad", 0, XTYPE_XBOXONE },
-	{ 0x045e, 0x02dd, "Microsoft X-Box One pad (Firmware 2015)", 0, XTYPE_XBOXONE },
-<<<<<<< HEAD
->>>>>>> 186e965edc7a... Input: xpad - correct xbox one pad device name
-=======
-	{ 0x045e, 0x02e3, "Microsoft X-Box One Elite pad", 0, XTYPE_XBOXONE },
-<<<<<<< HEAD
->>>>>>> 1a9409ebba38... Input: xpad - xbox one elite controller support
-=======
-	{ 0x045e, 0x02ea, "Microsoft X-Box One S pad", 0, XTYPE_XBOXONE },
-<<<<<<< HEAD
->>>>>>> d4830857bb22... Input: xpad - add product ID for Xbox One S pad
 	{ 0x045e, 0x0291, "Xbox 360 Wireless Receiver (XBOX)", MAP_DPAD_TO_BUTTONS, XTYPE_XBOX360W },
 	{ 0x045e, 0x02d1, "Microsoft X-Box One pad", 0, XTYPE_XBOXONE },
 	{ 0x045e, 0x02dd, "Microsoft X-Box One pad (Firmware 2015)", 0, XTYPE_XBOXONE },
 	{ 0x045e, 0x02e3, "Microsoft X-Box One Elite pad", 0, XTYPE_XBOXONE },
 	{ 0x045e, 0x02ea, "Microsoft X-Box One S pad", 0, XTYPE_XBOXONE },
-=======
->>>>>>> d87b189bbbd4... Input: xpad - sort supported devices by USB ID
 	{ 0x045e, 0x0719, "Xbox 360 Wireless Receiver", MAP_DPAD_TO_BUTTONS, XTYPE_XBOX360W },
 	{ 0x046d, 0xc21d, "Logitech Gamepad F310", 0, XTYPE_XBOX360 },
 	{ 0x046d, 0xc21e, "Logitech Gamepad F510", 0, XTYPE_XBOX360 },
@@ -196,18 +153,8 @@ static const struct xpad_device {
 	{ 0x046d, 0xc242, "Logitech Chillstream Controller", 0, XTYPE_XBOX360 },
 	{ 0x046d, 0xca84, "Logitech Xbox Cordless Controller", 0, XTYPE_XBOX },
 	{ 0x046d, 0xca88, "Logitech Compact Controller for Xbox", 0, XTYPE_XBOX },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> bb7169f3ddef... Input: xpad - sync supported devices with XBCD
 	{ 0x046d, 0xca8a, "Logitech Precision Vibration Feedback Wheel", 0, XTYPE_XBOX },
 	{ 0x046d, 0xcaa3, "Logitech DriveFx Racing Wheel", 0, XTYPE_XBOX360 },
-=======
->>>>>>> b8b7dbfd19ca... Input: xpad - sync supported devices with xboxdrv
-=======
-	{ 0x046d, 0xcaa3, "Logitech DriveFx Racing Wheel", 0, XTYPE_XBOX360 },
->>>>>>> b9805bd26b77... Input: xpad - sync supported devices with 360Controller
 	{ 0x056e, 0x2004, "Elecom JC-U3613M", 0, XTYPE_XBOX360 },
 	{ 0x05fd, 0x1007, "Mad Catz Controller (unverified)", 0, XTYPE_XBOX },
 	{ 0x05fd, 0x107a, "InterAct 'PowerPad Pro' X-Box pad (Germany)", 0, XTYPE_XBOX },
@@ -237,19 +184,8 @@ static const struct xpad_device {
 	{ 0x0738, 0x4736, "Mad Catz MicroCon Gamepad", 0, XTYPE_XBOX360 },
 	{ 0x0738, 0x4738, "Mad Catz Wired Xbox 360 Controller (SFIV)", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
 	{ 0x0738, 0x4740, "Mad Catz Beat Pad", 0, XTYPE_XBOX360 },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	{ 0x0738, 0x4743, "Mad Catz Beat Pad Pro", MAP_DPAD_TO_BUTTONS, XTYPE_XBOX },
 	{ 0x0738, 0x4758, "Mad Catz Arcade Game Stick", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
-=======
->>>>>>> e95ccc0f35ea... Input: xpad - add Mad Catz FightStick TE 2 VID/PID
-=======
-=======
-	{ 0x0738, 0x4743, "Mad Catz Beat Pad Pro", MAP_DPAD_TO_BUTTONS, XTYPE_XBOX },
->>>>>>> bb7169f3ddef... Input: xpad - sync supported devices with XBCD
-	{ 0x0738, 0x4758, "Mad Catz Arcade Game Stick", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
->>>>>>> b9805bd26b77... Input: xpad - sync supported devices with 360Controller
 	{ 0x0738, 0x4a01, "Mad Catz FightStick TE 2", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOXONE },
 	{ 0x0738, 0x6040, "Mad Catz Beat Pad Pro", MAP_DPAD_TO_BUTTONS, XTYPE_XBOX },
 	{ 0x0738, 0x9871, "Mad Catz Portable Drum", 0, XTYPE_XBOX360 },
@@ -279,19 +215,9 @@ static const struct xpad_device {
 	{ 0x0e6f, 0x0008, "After Glow Pro Controller", 0, XTYPE_XBOX },
 	{ 0x0e6f, 0x0105, "HSM3 Xbox360 dancepad", MAP_DPAD_TO_BUTTONS, XTYPE_XBOX360 },
 	{ 0x0e6f, 0x0113, "Afterglow AX.1 Gamepad for Xbox 360", 0, XTYPE_XBOX360 },
-<<<<<<< HEAD
-<<<<<<< HEAD
 	{ 0x0e6f, 0x011f, "Rock Candy Gamepad Wired Controller", 0, XTYPE_XBOX360 },
 	{ 0x0e6f, 0x0131, "PDP EA Sports Controller", 0, XTYPE_XBOX360 },
 	{ 0x0e6f, 0x0133, "Xbox 360 Wired Controller", 0, XTYPE_XBOX360 },
-=======
-	{ 0x0e6f, 0x011f, "Rock Candy Gamepad Wired Controller", 0, XTYPE_XBOX360 },
-<<<<<<< HEAD
->>>>>>> b8b7dbfd19ca... Input: xpad - sync supported devices with xboxdrv
-=======
-	{ 0x0e6f, 0x0131, "PDP EA Sports Controller", 0, XTYPE_XBOX360 },
-	{ 0x0e6f, 0x0133, "Xbox 360 Wired Controller", 0, XTYPE_XBOX360 },
->>>>>>> b9805bd26b77... Input: xpad - sync supported devices with 360Controller
 	{ 0x0e6f, 0x0139, "Afterglow Prismatic Wired Controller", 0, XTYPE_XBOXONE },
 	{ 0x0e6f, 0x013a, "PDP Xbox One Controller", 0, XTYPE_XBOXONE },
 	{ 0x0e6f, 0x0146, "Rock Candy Wired Controller for Xbox One", 0, XTYPE_XBOXONE },
@@ -306,74 +232,26 @@ static const struct xpad_device {
 	{ 0x0e6f, 0x0213, "Afterglow Gamepad for Xbox 360", 0, XTYPE_XBOX360 },
 	{ 0x0e6f, 0x021f, "Rock Candy Gamepad for Xbox 360", 0, XTYPE_XBOX360 },
 	{ 0x0e6f, 0x0246, "Rock Candy Gamepad for Xbox One 2015", 0, XTYPE_XBOXONE },
-<<<<<<< HEAD
-<<<<<<< HEAD
 	{ 0x0e6f, 0x02ab, "PDP Controller for Xbox One", 0, XTYPE_XBOXONE },
 	{ 0x0e6f, 0x02a4, "PDP Wired Controller for Xbox One - Stealth Series", 0, XTYPE_XBOXONE },
-<<<<<<< HEAD
-<<<<<<< HEAD
 	{ 0x0e6f, 0x02a6, "PDP Wired Controller for Xbox One - Camo Series", 0, XTYPE_XBOXONE },
-=======
-	{ 0x0e6f, 0x0139, "Afterglow Prismatic Wired Controller", 0, XTYPE_XBOXONE },
-	{ 0x0e6f, 0x0146, "Rock Candy Wired Controller for Xbox One", 0, XTYPE_XBOXONE },
-	{ 0x0e6f, 0x0201, "Pelican PL-3601 'TSZ' Wired Xbox 360 Controller", 0, XTYPE_XBOX360 },
-	{ 0x0e6f, 0x0213, "Afterglow Gamepad for Xbox 360", 0, XTYPE_XBOX360 },
-	{ 0x0e6f, 0x021f, "Rock Candy Gamepad for Xbox 360", 0, XTYPE_XBOX360 },
-<<<<<<< HEAD
-	{ 0x0e6f, 0x0146, "Rock Candy Wired Controller for Xbox One", 0, XTYPE_XBOXONE },
->>>>>>> adde3608c9d0... Input: xpad - add more third-party controllers
-=======
->>>>>>> d87b189bbbd4... Input: xpad - sort supported devices by USB ID
-=======
->>>>>>> b9805bd26b77... Input: xpad - sync supported devices with 360Controller
-=======
-	{ 0x0e6f, 0x02ab, "PDP Controller for Xbox One", 0, XTYPE_XBOXONE },
->>>>>>> 849e8175a91e... Input: xpad - add support for PDP Xbox One controllers
-=======
->>>>>>> 8caa7c8854e1... Input: xpad - add PDP device id 0x02a4
-=======
-	{ 0x0e6f, 0x02a6, "PDP Wired Controller for Xbox One - Camo Series", 0, XTYPE_XBOXONE },
->>>>>>> 41d1c56f2de8... Input: xpad - add support for Xbox1 PDP Camo series gamepad
 	{ 0x0e6f, 0x0301, "Logic3 Controller", 0, XTYPE_XBOX360 },
 	{ 0x0e6f, 0x0346, "Rock Candy Gamepad for Xbox One 2016", 0, XTYPE_XBOXONE },
 	{ 0x0e6f, 0x0401, "Logic3 Controller", 0, XTYPE_XBOX360 },
 	{ 0x0e6f, 0x0413, "Afterglow AX.1 Gamepad for Xbox 360", 0, XTYPE_XBOX360 },
-<<<<<<< HEAD
-<<<<<<< HEAD
 	{ 0x0e6f, 0x0501, "PDP Xbox 360 Controller", 0, XTYPE_XBOX360 },
 	{ 0x0e6f, 0xf900, "PDP Afterglow AX.1", 0, XTYPE_XBOX360 },
-=======
->>>>>>> b8b7dbfd19ca... Input: xpad - sync supported devices with xboxdrv
-=======
-	{ 0x0e6f, 0x0501, "PDP Xbox 360 Controller", 0, XTYPE_XBOX360 },
-	{ 0x0e6f, 0xf900, "PDP Afterglow AX.1", 0, XTYPE_XBOX360 },
->>>>>>> b9805bd26b77... Input: xpad - sync supported devices with 360Controller
 	{ 0x0e8f, 0x0201, "SmartJoy Frag Xpad/PS2 adaptor", 0, XTYPE_XBOX },
 	{ 0x0e8f, 0x3008, "Generic xbox control (dealextreme)", 0, XTYPE_XBOX },
 	{ 0x0f0d, 0x000a, "Hori Co. DOA4 FightStick", 0, XTYPE_XBOX360 },
 	{ 0x0f0d, 0x000c, "Hori PadEX Turbo", 0, XTYPE_XBOX360 },
 	{ 0x0f0d, 0x000d, "Hori Fighting Stick EX2", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
 	{ 0x0f0d, 0x0016, "Hori Real Arcade Pro.EX", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
-<<<<<<< HEAD
-<<<<<<< HEAD
 	{ 0x0f0d, 0x001b, "Hori Real Arcade Pro VX", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
 	{ 0x0f0d, 0x0063, "Hori Real Arcade Pro Hayabusa (USA) Xbox One", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOXONE },
 	{ 0x0f0d, 0x0067, "HORIPAD ONE", 0, XTYPE_XBOXONE },
 	{ 0x0f0d, 0x0078, "Hori Real Arcade Pro V Kai Xbox One", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOXONE },
 	{ 0x0f30, 0x010b, "Philips Recoil", 0, XTYPE_XBOX },
-=======
-	{ 0x0f0d, 0x0067, "HORIPAD ONE", 0, XTYPE_XBOXONE },
->>>>>>> adde3608c9d0... Input: xpad - add more third-party controllers
-=======
-	{ 0x0f0d, 0x001b, "Hori Real Arcade Pro VX", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
-	{ 0x0f0d, 0x0063, "Hori Real Arcade Pro Hayabusa (USA) Xbox One", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOXONE },
-	{ 0x0f0d, 0x0067, "HORIPAD ONE", 0, XTYPE_XBOXONE },
-	{ 0x0f0d, 0x0078, "Hori Real Arcade Pro V Kai Xbox One", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOXONE },
-<<<<<<< HEAD
->>>>>>> b9805bd26b77... Input: xpad - sync supported devices with 360Controller
-=======
-	{ 0x0f30, 0x010b, "Philips Recoil", 0, XTYPE_XBOX },
->>>>>>> bb7169f3ddef... Input: xpad - sync supported devices with XBCD
 	{ 0x0f30, 0x0202, "Joytech Advanced Controller", 0, XTYPE_XBOX },
 	{ 0x0f30, 0x8888, "BigBen XBMiniPad Controller", 0, XTYPE_XBOX },
 	{ 0x102c, 0xff0c, "Joytech Wireless Advanced Controller", 0, XTYPE_XBOX },
@@ -395,42 +273,19 @@ static const struct xpad_device {
 	{ 0x162e, 0xbeef, "Joytech Neo-Se Take2", 0, XTYPE_XBOX360 },
 	{ 0x1689, 0xfd00, "Razer Onza Tournament Edition", 0, XTYPE_XBOX360 },
 	{ 0x1689, 0xfd01, "Razer Onza Classic Edition", 0, XTYPE_XBOX360 },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	{ 0x1689, 0xfe00, "Razer Sabertooth", 0, XTYPE_XBOX360 },
-=======
-	{ 0x24c6, 0x542a, "Xbox ONE spectra", 0, XTYPE_XBOXONE },
-	{ 0x24c6, 0x5d04, "Razer Sabertooth", 0, XTYPE_XBOX360 },
->>>>>>> adde3608c9d0... Input: xpad - add more third-party controllers
-=======
->>>>>>> d87b189bbbd4... Input: xpad - sort supported devices by USB ID
-=======
-	{ 0x1689, 0xfe00, "Razer Sabertooth", 0, XTYPE_XBOX360 },
->>>>>>> 2de9c977c728... Input: xpad - add USB IDs for Mad Catz Brawlstick and Razer Sabertooth
 	{ 0x1bad, 0x0002, "Harmonix Rock Band Guitar", 0, XTYPE_XBOX360 },
 	{ 0x1bad, 0x0003, "Harmonix Rock Band Drumkit", MAP_DPAD_TO_BUTTONS, XTYPE_XBOX360 },
 	{ 0x1bad, 0x0130, "Ion Drum Rocker", MAP_DPAD_TO_BUTTONS, XTYPE_XBOX360 },
 	{ 0x1bad, 0xf016, "Mad Catz Xbox 360 Controller", 0, XTYPE_XBOX360 },
 	{ 0x1bad, 0xf018, "Mad Catz Street Fighter IV SE Fighting Stick", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
-<<<<<<< HEAD
-<<<<<<< HEAD
 	{ 0x1bad, 0xf019, "Mad Catz Brawlstick for Xbox 360", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
-=======
->>>>>>> b8b7dbfd19ca... Input: xpad - sync supported devices with xboxdrv
-=======
-	{ 0x1bad, 0xf019, "Mad Catz Brawlstick for Xbox 360", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
->>>>>>> 2de9c977c728... Input: xpad - add USB IDs for Mad Catz Brawlstick and Razer Sabertooth
 	{ 0x1bad, 0xf021, "Mad Cats Ghost Recon FS GamePad", 0, XTYPE_XBOX360 },
 	{ 0x1bad, 0xf023, "MLG Pro Circuit Controller (Xbox)", 0, XTYPE_XBOX360 },
 	{ 0x1bad, 0xf025, "Mad Catz Call Of Duty", 0, XTYPE_XBOX360 },
 	{ 0x1bad, 0xf027, "Mad Catz FPS Pro", 0, XTYPE_XBOX360 },
 	{ 0x1bad, 0xf028, "Street Fighter IV FightPad", 0, XTYPE_XBOX360 },
 	{ 0x1bad, 0xf02e, "Mad Catz Fightpad", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> bb7169f3ddef... Input: xpad - sync supported devices with XBCD
 	{ 0x1bad, 0xf030, "Mad Catz Xbox 360 MC2 MicroCon Racing Wheel", 0, XTYPE_XBOX360 },
 	{ 0x1bad, 0xf036, "Mad Catz MicroCon GamePad Pro", 0, XTYPE_XBOX360 },
 	{ 0x1bad, 0xf038, "Street Fighter IV FightStick TE", 0, XTYPE_XBOX360 },
@@ -458,38 +313,14 @@ static const struct xpad_device {
 	{ 0x24c6, 0x5000, "Razer Atrox Arcade Stick", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
 	{ 0x24c6, 0x5300, "PowerA MINI PROEX Controller", 0, XTYPE_XBOX360 },
 	{ 0x24c6, 0x5303, "Xbox Airflo wired controller", 0, XTYPE_XBOX360 },
-<<<<<<< HEAD
-<<<<<<< HEAD
 	{ 0x24c6, 0x530a, "Xbox 360 Pro EX Controller", 0, XTYPE_XBOX360 },
-=======
-	{ 0x1bad, 0xf038, "Street Fighter IV FightStick TE", 0, XTYPE_XBOX360 },
-	{ 0x1bad, 0xf03a, "Mad Catz SFxT Fightstick Pro", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
-	{ 0x1bad, 0xf900, "Harmonix Xbox 360 Controller", 0, XTYPE_XBOX360 },
-	{ 0x1bad, 0xf901, "Gamestop Xbox 360 Controller", 0, XTYPE_XBOX360 },
-	{ 0x1bad, 0xf903, "Tron Xbox 360 controller", 0, XTYPE_XBOX360 },
-	{ 0x1bad, 0xfa01, "MadCatz GamePad", 0, XTYPE_XBOX360 },
-	{ 0x24c6, 0x5000, "Razer Atrox Arcade Stick", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
-	{ 0x24c6, 0x5300, "PowerA MINI PROEX Controller", 0, XTYPE_XBOX360 },
-	{ 0x24c6, 0x5303, "Xbox Airflo wired controller", 0, XTYPE_XBOX360 },
->>>>>>> b8b7dbfd19ca... Input: xpad - sync supported devices with xboxdrv
-=======
-	{ 0x24c6, 0x530a, "Xbox 360 Pro EX Controller", 0, XTYPE_XBOX360 },
->>>>>>> b9805bd26b77... Input: xpad - sync supported devices with 360Controller
 	{ 0x24c6, 0x531a, "PowerA Pro Ex", 0, XTYPE_XBOX360 },
 	{ 0x24c6, 0x5397, "FUS1ON Tournament Controller", 0, XTYPE_XBOX360 },
 	{ 0x24c6, 0x541a, "PowerA Xbox One Mini Wired Controller", 0, XTYPE_XBOXONE },
 	{ 0x24c6, 0x542a, "Xbox ONE spectra", 0, XTYPE_XBOXONE },
-<<<<<<< HEAD
-=======
-	{ 0x24c6, 0x541a, "PowerA Xbox One Mini Wired Controller", 0, XTYPE_XBOXONE },
->>>>>>> adde3608c9d0... Input: xpad - add more third-party controllers
-=======
->>>>>>> d87b189bbbd4... Input: xpad - sort supported devices by USB ID
 	{ 0x24c6, 0x543a, "PowerA Xbox One wired controller", 0, XTYPE_XBOXONE },
 	{ 0x24c6, 0x5500, "Hori XBOX 360 EX 2 with Turbo", 0, XTYPE_XBOX360 },
 	{ 0x24c6, 0x5501, "Hori Real Arcade Pro VX-SA", 0, XTYPE_XBOX360 },
-<<<<<<< HEAD
-<<<<<<< HEAD
 	{ 0x24c6, 0x5502, "Hori Fighting Stick VX Alt", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
 	{ 0x24c6, 0x5503, "Hori Fighting Edge", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
 	{ 0x24c6, 0x5506, "Hori SOULCALIBUR V Stick", 0, XTYPE_XBOX360 },
@@ -498,36 +329,11 @@ static const struct xpad_device {
 	{ 0x24c6, 0x551a, "PowerA FUSION Pro Controller", 0, XTYPE_XBOXONE },
 	{ 0x24c6, 0x561a, "PowerA FUSION Controller", 0, XTYPE_XBOXONE },
 	{ 0x24c6, 0x5b00, "ThrustMaster Ferrari 458 Racing Wheel", 0, XTYPE_XBOX360 },
-=======
-	{ 0x24c6, 0x5503, "Hori Fighting Edge", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
-	{ 0x24c6, 0x5506, "Hori SOULCALIBUR V Stick", 0, XTYPE_XBOX360 },
-	{ 0x24c6, 0x550d, "Hori GEM Xbox controller", 0, XTYPE_XBOX360 },
->>>>>>> b8b7dbfd19ca... Input: xpad - sync supported devices with xboxdrv
 	{ 0x24c6, 0x5b02, "Thrustmaster, Inc. GPX Controller", 0, XTYPE_XBOX360 },
 	{ 0x24c6, 0x5b03, "Thrustmaster Ferrari 458 Racing Wheel", 0, XTYPE_XBOX360 },
 	{ 0x24c6, 0x5d04, "Razer Sabertooth", 0, XTYPE_XBOX360 },
-<<<<<<< HEAD
 	{ 0x24c6, 0xfafe, "Rock Candy Gamepad for Xbox 360", 0, XTYPE_XBOX360 },
 	{ 0x3767, 0x0101, "Fanatec Speedster 3 Forceshock Wheel", 0, XTYPE_XBOX },
-<<<<<<< HEAD
-=======
->>>>>>> d87b189bbbd4... Input: xpad - sort supported devices by USB ID
-=======
-	{ 0x24c6, 0x5502, "Hori Fighting Stick VX Alt", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
-	{ 0x24c6, 0x5503, "Hori Fighting Edge", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
-	{ 0x24c6, 0x5506, "Hori SOULCALIBUR V Stick", 0, XTYPE_XBOX360 },
-	{ 0x24c6, 0x550d, "Hori GEM Xbox controller", 0, XTYPE_XBOX360 },
-	{ 0x24c6, 0x550e, "Hori Real Arcade Pro V Kai 360", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
-	{ 0x24c6, 0x551a, "PowerA FUSION Pro Controller", 0, XTYPE_XBOXONE },
-	{ 0x24c6, 0x561a, "PowerA FUSION Controller", 0, XTYPE_XBOXONE },
-	{ 0x24c6, 0x5b00, "ThrustMaster Ferrari 458 Racing Wheel", 0, XTYPE_XBOX360 },
-	{ 0x24c6, 0x5b02, "Thrustmaster, Inc. GPX Controller", 0, XTYPE_XBOX360 },
-	{ 0x24c6, 0x5b03, "Thrustmaster Ferrari 458 Racing Wheel", 0, XTYPE_XBOX360 },
-	{ 0x24c6, 0x5d04, "Razer Sabertooth", 0, XTYPE_XBOX360 },
-	{ 0x24c6, 0xfafe, "Rock Candy Gamepad for Xbox 360", 0, XTYPE_XBOX360 },
->>>>>>> b9805bd26b77... Input: xpad - sync supported devices with 360Controller
-=======
->>>>>>> bb7169f3ddef... Input: xpad - sync supported devices with XBCD
 	{ 0xffff, 0xffff, "Chinese-made Xbox Controller", 0, XTYPE_XBOX },
 	{ 0x0000, 0x0000, "Generic X-Box pad", 0, XTYPE_UNKNOWN }
 };
@@ -616,54 +422,19 @@ static const struct usb_device_id xpad_table[] = {
 	XPAD_XBOXONE_VENDOR(0x045e),		/* Microsoft X-Box One controllers */
 	XPAD_XBOX360_VENDOR(0x046d),		/* Logitech X-Box 360 style controllers */
 	XPAD_XBOX360_VENDOR(0x056e),		/* Elecom JC-U3613M */
-<<<<<<< HEAD
-<<<<<<< HEAD
-	XPAD_XBOX360_VENDOR(0x06a3),		/* Saitek P3600 */
-=======
->>>>>>> b8b7dbfd19ca... Input: xpad - sync supported devices with xboxdrv
-	XPAD_XBOX360_VENDOR(0x0738),		/* Mad Catz X-Box 360 controllers */
-	{ USB_DEVICE(0x0738, 0x4540) },		/* Mad Catz Beat Pad */
-	XPAD_XBOXONE_VENDOR(0x0738),		/* Mad Catz FightStick TE 2 */
-<<<<<<< HEAD
-	XPAD_XBOX360_VENDOR(0x07ff),		/* Mad Catz GamePad */
-=======
->>>>>>> e95ccc0f35ea... Input: xpad - add Mad Catz FightStick TE 2 VID/PID
-=======
 	XPAD_XBOX360_VENDOR(0x06a3),		/* Saitek P3600 */
 	XPAD_XBOX360_VENDOR(0x0738),		/* Mad Catz X-Box 360 controllers */
 	{ USB_DEVICE(0x0738, 0x4540) },		/* Mad Catz Beat Pad */
 	XPAD_XBOXONE_VENDOR(0x0738),		/* Mad Catz FightStick TE 2 */
 	XPAD_XBOX360_VENDOR(0x07ff),		/* Mad Catz GamePad */
->>>>>>> bb7169f3ddef... Input: xpad - sync supported devices with XBCD
 	XPAD_XBOX360_VENDOR(0x0e6f),		/* 0x0e6f X-Box 360 controllers */
 	XPAD_XBOXONE_VENDOR(0x0e6f),		/* 0x0e6f X-Box One controllers */
-<<<<<<< HEAD
-<<<<<<< HEAD
 	XPAD_XBOX360_VENDOR(0x0f0d),		/* Hori Controllers */
 	XPAD_XBOXONE_VENDOR(0x0f0d),		/* Hori Controllers */
 	XPAD_XBOX360_VENDOR(0x11c9),		/* Nacon GC100XF */
 	XPAD_XBOX360_VENDOR(0x12ab),		/* X-Box 360 dance pads */
 	XPAD_XBOX360_VENDOR(0x1430),		/* RedOctane X-Box 360 controllers */
 	XPAD_XBOX360_VENDOR(0x146b),		/* BigBen Interactive Controllers */
-=======
-	XPAD_XBOX360_VENDOR(0x12ab),		/* X-Box 360 dance pads */
-	XPAD_XBOX360_VENDOR(0x1430),		/* RedOctane X-Box 360 controllers */
-	XPAD_XBOX360_VENDOR(0x146b),		/* BigBen Interactive Controllers */
-	XPAD_XBOX360_VENDOR(0x1bad),		/* Harminix Rock Band Guitar and Drums */
-	XPAD_XBOX360_VENDOR(0x0f0d),		/* Hori Controllers */
-	XPAD_XBOXONE_VENDOR(0x0f0d),		/* Hori Controllers */
-	XPAD_XBOX360_VENDOR(0x1689),		/* Razer Onza */
-	XPAD_XBOX360_VENDOR(0x24c6),		/* PowerA Controllers */
-	XPAD_XBOXONE_VENDOR(0x24c6),		/* PowerA Controllers */
->>>>>>> adde3608c9d0... Input: xpad - add more third-party controllers
-=======
-	XPAD_XBOX360_VENDOR(0x0f0d),		/* Hori Controllers */
-	XPAD_XBOXONE_VENDOR(0x0f0d),		/* Hori Controllers */
-	XPAD_XBOX360_VENDOR(0x11c9),		/* Nacon GC100XF */
-	XPAD_XBOX360_VENDOR(0x12ab),		/* X-Box 360 dance pads */
-	XPAD_XBOX360_VENDOR(0x1430),		/* RedOctane X-Box 360 controllers */
-	XPAD_XBOX360_VENDOR(0x146b),		/* BigBen Interactive Controllers */
->>>>>>> 29ddc01c9d76... Input: xpad - correctly sort vendor id's
 	XPAD_XBOX360_VENDOR(0x1532),		/* Razer Sabertooth */
 	XPAD_XBOXONE_VENDOR(0x1532),		/* Razer Wildcat */
 	XPAD_XBOX360_VENDOR(0x15e4),		/* Numark X-Box 360 controllers */
@@ -677,10 +448,6 @@ static const struct usb_device_id xpad_table[] = {
 
 MODULE_DEVICE_TABLE(usb, xpad_table);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 struct xboxone_init_packet {
 	u16 idVendor;
 	u16 idProduct;
@@ -716,40 +483,18 @@ static const u8 xboxone_hori_init[] = {
 };
 
 /*
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
  * This packet is required for most (all?) of the PDP pads to start
  * sending input reports. These pads include: (0x0e6f:0x02ab),
  * (0x0e6f:0x02a4), (0x0e6f:0x02a6).
-=======
- * This packet is required for some of the PDP pads to start
-<<<<<<< HEAD
- * sending input reports. One of those pads is (0x0e6f:0x02ab).
->>>>>>> 849e8175a91e... Input: xpad - add support for PDP Xbox One controllers
-=======
- * sending input reports. These pads include: (0x0e6f:0x02ab),
- * (0x0e6f:0x02a4).
->>>>>>> 8caa7c8854e1... Input: xpad - add PDP device id 0x02a4
  */
 static const u8 xboxone_pdp_init1[] = {
 	0x0a, 0x20, 0x00, 0x03, 0x00, 0x01, 0x14
 };
 
 /*
-<<<<<<< HEAD
  * This packet is required for most (all?) of the PDP pads to start
  * sending input reports. These pads include: (0x0e6f:0x02ab),
  * (0x0e6f:0x02a4), (0x0e6f:0x02a6).
-=======
- * This packet is required for some of the PDP pads to start
-<<<<<<< HEAD
- * sending input reports. One of those pads is (0x0e6f:0x02ab).
->>>>>>> 849e8175a91e... Input: xpad - add support for PDP Xbox One controllers
-=======
- * sending input reports. These pads include: (0x0e6f:0x02ab),
- * (0x0e6f:0x02a4).
->>>>>>> 8caa7c8854e1... Input: xpad - add PDP device id 0x02a4
  */
 static const u8 xboxone_pdp_init2[] = {
 	0x06, 0x20, 0x00, 0x02, 0x01, 0x00
@@ -771,29 +516,6 @@ static const u8 xboxone_rumblebegin_init[] = {
  * spin up to enough speed to actually vibrate the gamepad.
  */
 static const u8 xboxone_rumbleend_init[] = {
-=======
- * A rumble packet is required for some PowerA pads to start
- * sending input reports. One of those pads is (0x24c6:0x543a).
- */
-static const u8 xboxone_zerorumble_init[] = {
->>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
-=======
- * A specific rumble packet is required for some PowerA pads to start
- * sending input reports. One of those pads is (0x24c6:0x543a).
- */
-static const u8 xboxone_rumblebegin_init[] = {
-	0x09, 0x00, 0x00, 0x09, 0x00, 0x0F, 0x00, 0x00,
-	0x1D, 0x1D, 0xFF, 0x00, 0x00
-};
-
-/*
- * A rumble packet with zero FF intensity will immediately
- * terminate the rumbling required to init PowerA pads.
- * This should happen fast enough that the motors don't
- * spin up to enough speed to actually vibrate the gamepad.
- */
-static const u8 xboxone_rumbleend_init[] = {
->>>>>>> 3aa211c85984... Input: xpad - fix PowerA init quirk for some gamepad models
 	0x09, 0x00, 0x00, 0x09, 0x00, 0x0F, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00, 0x00
 };
@@ -808,46 +530,16 @@ static const struct xboxone_init_packet xboxone_init_packets[] = {
 	XBOXONE_INIT_PKT(0x0e6f, 0x0165, xboxone_hori_init),
 	XBOXONE_INIT_PKT(0x0f0d, 0x0067, xboxone_hori_init),
 	XBOXONE_INIT_PKT(0x0000, 0x0000, xboxone_fw2015_init),
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 	XBOXONE_INIT_PKT(0x0e6f, 0x0000, xboxone_pdp_init1),
 	XBOXONE_INIT_PKT(0x0e6f, 0x0000, xboxone_pdp_init2),
-=======
->>>>>>> 3aa211c85984... Input: xpad - fix PowerA init quirk for some gamepad models
-=======
-	XBOXONE_INIT_PKT(0x0e6f, 0x02ab, xboxone_pdp_init1),
-	XBOXONE_INIT_PKT(0x0e6f, 0x02ab, xboxone_pdp_init2),
-<<<<<<< HEAD
->>>>>>> 849e8175a91e... Input: xpad - add support for PDP Xbox One controllers
-=======
-	XBOXONE_INIT_PKT(0x0e6f, 0x02a4, xboxone_pdp_init1),
-	XBOXONE_INIT_PKT(0x0e6f, 0x02a4, xboxone_pdp_init2),
-<<<<<<< HEAD
->>>>>>> 8caa7c8854e1... Input: xpad - add PDP device id 0x02a4
-=======
-	XBOXONE_INIT_PKT(0x0e6f, 0x02a6, xboxone_pdp_init1),
-	XBOXONE_INIT_PKT(0x0e6f, 0x02a6, xboxone_pdp_init2),
->>>>>>> 41d1c56f2de8... Input: xpad - add support for Xbox1 PDP Camo series gamepad
 	XBOXONE_INIT_PKT(0x24c6, 0x541a, xboxone_rumblebegin_init),
 	XBOXONE_INIT_PKT(0x24c6, 0x542a, xboxone_rumblebegin_init),
 	XBOXONE_INIT_PKT(0x24c6, 0x543a, xboxone_rumblebegin_init),
 	XBOXONE_INIT_PKT(0x24c6, 0x541a, xboxone_rumbleend_init),
 	XBOXONE_INIT_PKT(0x24c6, 0x542a, xboxone_rumbleend_init),
 	XBOXONE_INIT_PKT(0x24c6, 0x543a, xboxone_rumbleend_init),
-<<<<<<< HEAD
 };
 
-
-=======
-	XBOXONE_INIT_PKT(0x24c6, 0x541a, xboxone_zerorumble_init),
-	XBOXONE_INIT_PKT(0x24c6, 0x542a, xboxone_zerorumble_init),
-	XBOXONE_INIT_PKT(0x24c6, 0x543a, xboxone_zerorumble_init),
-=======
->>>>>>> 3aa211c85984... Input: xpad - fix PowerA init quirk for some gamepad models
-};
-
->>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 struct xpad_output_packet {
 	u8 data[XPAD_PKT_LEN];
 	u8 len;
@@ -875,17 +567,8 @@ struct usb_xpad {
 	dma_addr_t idata_dma;
 
 	struct urb *irq_out;		/* urb for interrupt out report */
-<<<<<<< HEAD
-
 	struct usb_anchor irq_out_anchor;
 	bool irq_out_active;		/* we must not use an active URB */
-	u8 odata_serial;		/* serial number for xbox one protocol */
-
-	unsigned char *odata;		/* output data */
-=======
-	struct usb_anchor irq_out_anchor;
-	bool irq_out_active;		/* we must not use an active URB */
->>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 	u8 odata_serial;		/* serial number for xbox one protocol */
 	unsigned char *odata;		/* output data */
 	dma_addr_t odata_dma;
@@ -894,9 +577,6 @@ struct usb_xpad {
 	struct xpad_output_packet out_packets[XPAD_NUM_OUT_PACKETS];
 	int last_out_packet;
 	int init_seq;
-
-	int init_seq;
-
 
 #if defined(CONFIG_JOYSTICK_XPAD_LEDS)
 	struct xpad_led *led;
@@ -1147,10 +827,6 @@ static void xpadone_process_packet(struct usb_xpad *xpad, u16 cmd, unsigned char
 
 	/* the xbox button has its own special report */
 	if (data[0] == 0X07) {
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> d91bbfcc4ecd... Input: xpad - fix stuck mode button on Xbox One S pad
 		/*
 		 * The Xbox One S controller requires these reports to be
 		 * acked otherwise it continues sending them forever and
@@ -1159,11 +835,6 @@ static void xpadone_process_packet(struct usb_xpad *xpad, u16 cmd, unsigned char
 		if (data[1] == 0x30)
 			xpadone_ack_mode_report(xpad, data[2]);
 
-<<<<<<< HEAD
-=======
->>>>>>> 44787a7951a8... Input: xpad - move reporting xbox one home button to common function
-=======
->>>>>>> d91bbfcc4ecd... Input: xpad - fix stuck mode button on Xbox One S pad
 		input_report_key(dev, BTN_MODE, data[4] & 0x01);
 		input_sync(dev);
 		return;
@@ -1281,10 +952,6 @@ exit:
 }
 
 /* Callers must hold xpad->odata_lock spinlock */
-<<<<<<< HEAD
-
-=======
->>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 static bool xpad_prepare_next_init_packet(struct usb_xpad *xpad)
 {
 	const struct xboxone_init_packet *init_packet;
@@ -1317,27 +984,15 @@ static bool xpad_prepare_next_init_packet(struct usb_xpad *xpad)
 }
 
 /* Callers must hold xpad->odata_lock spinlock */
-<<<<<<< HEAD
-
-=======
->>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 static bool xpad_prepare_next_out_packet(struct usb_xpad *xpad)
 {
 	struct xpad_output_packet *pkt, *packet = NULL;
 	int i;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 	/* We may have init packets to send before we can send user commands */
 	if (xpad_prepare_next_init_packet(xpad))
 		return true;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 	for (i = 0; i < XPAD_NUM_OUT_PACKETS; i++) {
 		if (++xpad->last_out_packet >= XPAD_NUM_OUT_PACKETS)
 			xpad->last_out_packet = 0;
@@ -1355,13 +1010,7 @@ static bool xpad_prepare_next_out_packet(struct usb_xpad *xpad)
 	if (packet) {
 		memcpy(xpad->odata, packet->data, packet->len);
 		xpad->irq_out->transfer_buffer_length = packet->len;
-<<<<<<< HEAD
-
 		packet->pending = false;
-
-=======
-		packet->pending = false;
->>>>>>> 898971df513f... Input: xpad - move pending clear to the correct location
 		return true;
 	}
 
@@ -1374,25 +1023,13 @@ static int xpad_try_sending_next_out_packet(struct usb_xpad *xpad)
 	int error;
 
 	if (!xpad->irq_out_active && xpad_prepare_next_out_packet(xpad)) {
-<<<<<<< HEAD
-
 		usb_anchor_urb(xpad->irq_out, &xpad->irq_out_anchor);
-
-=======
-		usb_anchor_urb(xpad->irq_out, &xpad->irq_out_anchor);
->>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 		error = usb_submit_urb(xpad->irq_out, GFP_ATOMIC);
 		if (error) {
 			dev_err(&xpad->intf->dev,
 				"%s - usb_submit_urb failed with result %d\n",
 				__func__, error);
-<<<<<<< HEAD
-
 			usb_unanchor_urb(xpad->irq_out);
-
-=======
-			usb_unanchor_urb(xpad->irq_out);
->>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 			return -EIO;
 		}
 
@@ -1415,10 +1052,6 @@ static void xpad_irq_out(struct urb *urb)
 	switch (status) {
 	case 0:
 		/* success */
-<<<<<<< HEAD
-
-=======
->>>>>>> 898971df513f... Input: xpad - move pending clear to the correct location
 		xpad->irq_out_active = xpad_prepare_next_out_packet(xpad);
 		break;
 
@@ -1438,22 +1071,12 @@ static void xpad_irq_out(struct urb *urb)
 	}
 
 	if (xpad->irq_out_active) {
-<<<<<<< HEAD
-
 		usb_anchor_urb(urb, &xpad->irq_out_anchor);
-
-=======
-		usb_anchor_urb(urb, &xpad->irq_out_anchor);
->>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 		error = usb_submit_urb(urb, GFP_ATOMIC);
 		if (error) {
 			dev_err(dev,
 				"%s - usb_submit_urb failed with result %d\n",
 				__func__, error);
-<<<<<<< HEAD
-
-=======
->>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 			usb_unanchor_urb(urb);
 			xpad->irq_out_active = false;
 		}
@@ -1525,7 +1148,6 @@ static int xpad_inquiry_pad_presence(struct usb_xpad *xpad)
 	struct xpad_output_packet *packet =
 			&xpad->out_packets[XPAD_OUT_CMD_IDX];
 	unsigned long flags;
-
 	int retval;
 
 	spin_lock_irqsave(&xpad->odata_lock, flags);
@@ -1561,32 +1183,12 @@ static int xpad_start_xbox_one(struct usb_xpad *xpad)
 
 	spin_lock_irqsave(&xpad->odata_lock, flags);
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 	/*
 	 * Begin the init sequence by attempting to send a packet.
 	 * We will cycle through the init packet sequence before
 	 * sending any packets from the output ring.
 	 */
 	xpad->init_seq = 0;
-<<<<<<< HEAD
-=======
-	/* Xbox one controller needs to be initialized. */
-	packet->data[0] = 0x05;
-	packet->data[1] = 0x20;
-	packet->data[2] = xpad->odata_serial++; /* packet serial */
-	packet->data[3] = 0x01; /* rumble bit enable?  */
-	packet->data[4] = 0x00;
-	packet->len = 5;
-	packet->pending = true;
-
-	/* Reset the sequence so we send out start packet first */
-	xpad->last_out_packet = -1;
->>>>>>> 162a94765b7f... Input: xpad - update Xbox One Force Feedback Support
-=======
->>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 	retval = xpad_try_sending_next_out_packet(xpad);
 
 	spin_unlock_irqrestore(&xpad->odata_lock, flags);
@@ -1680,9 +1282,6 @@ static int xpad_play_effect(struct input_dev *dev, void *data, struct ff_effect 
 
 	case XTYPE_XBOXONE:
 		packet->data[0] = 0x09; /* activate rumble */
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 		packet->data[1] = 0x00;
 		packet->data[2] = xpad->odata_serial++;
 		packet->data[3] = 0x09;
@@ -1695,29 +1294,7 @@ static int xpad_play_effect(struct input_dev *dev, void *data, struct ff_effect 
 		packet->data[10] = 0xFF; /* on period */
 		packet->data[11] = 0x00; /* off period */
 		packet->data[12] = 0xFF; /* repeat count */
-<<<<<<< HEAD
 		packet->len = 13;
-
-=======
-		packet->data[1] = 0x08;
-=======
-		packet->data[1] = 0x00;
->>>>>>> db3d42826def... Input: xpad - fix rumble on Xbox One controllers with 2015 firmware
-		packet->data[2] = xpad->odata_serial++;
-		packet->data[3] = 0x09;
-		packet->data[4] = 0x00;
-		packet->data[5] = 0x0F;
-		packet->data[6] = 0x00;
-		packet->data[7] = 0x00;
-		packet->data[8] = strong / 512;	/* left actuator */
-		packet->data[9] = weak / 512;	/* right actuator */
-		packet->data[10] = 0xFF;
-		packet->data[11] = 0x00;
-		packet->data[12] = 0x00;
-=======
->>>>>>> 2d92cafaa9c8... Input: xpad - fix Xbox One rumble stopping after 2.5 secs
-		packet->len = 13;
->>>>>>> 162a94765b7f... Input: xpad - update Xbox One Force Feedback Support
 		packet->pending = true;
 		break;
 
@@ -1907,10 +1484,6 @@ static int xpad_start_input(struct usb_xpad *xpad)
 	if (usb_submit_urb(xpad->irq_in, GFP_KERNEL))
 		return -EIO;
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 	if (xpad->xtype == XTYPE_XBOXONE) {
 		error = xpad_start_xbox_one(xpad);
 		if (error) {
@@ -1918,10 +1491,6 @@ static int xpad_start_input(struct usb_xpad *xpad)
 			return error;
 		}
 	}
-<<<<<<< HEAD
-
-=======
->>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 
 	return 0;
 }
@@ -1931,10 +1500,6 @@ static void xpad_stop_input(struct usb_xpad *xpad)
 	usb_kill_urb(xpad->irq_in);
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d17ca91d929... Input: xpad - power off wireless 360 controllers on suspend
 static void xpad360w_poweroff_controller(struct usb_xpad *xpad)
 {
 	unsigned long flags;
@@ -1973,16 +1538,6 @@ static int xpad360w_start_input(struct usb_xpad *xpad)
 	if (error)
 		return -EIO;
 
-=======
-static int xpad360w_start_input(struct usb_xpad *xpad)
-{
-	int error;
-
-	error = usb_submit_urb(xpad->irq_in, GFP_KERNEL);
-	if (error)
-		return -EIO;
-
->>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 	/*
 	 * Send presence packet.
 	 * This will force the controller to resend connection packets.
@@ -2024,15 +1579,7 @@ static void xpad_close(struct input_dev *dev)
 static void xpad_set_up_abs(struct input_dev *input_dev, signed short abs)
 {
 	struct usb_xpad *xpad = input_get_drvdata(input_dev);
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-	set_bit(abs, input_dev->absbit);
->>>>>>> 69fe32cddbc7... Input: xpad - fix some coding style issues
-
-=======
->>>>>>> 2a1605650e01... Input: xpad - avoid using __set_bit() for capabilities
 	switch (abs) {
 	case ABS_X:
 	case ABS_Y:
@@ -2093,15 +1640,7 @@ static int xpad_init_input(struct usb_xpad *xpad)
 		input_dev->open = xpad_open;
 		input_dev->close = xpad_close;
 	}
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
-	__set_bit(EV_KEY, input_dev->evbit);
->>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
-
-=======
->>>>>>> 2a1605650e01... Input: xpad - avoid using __set_bit() for capabilities
 	if (!(xpad->mapping & MAP_STICKS_TO_NULL)) {
 		/* set up axes */
 		for (i = 0; xpad_abs[i] >= 0; i++)
@@ -2247,46 +1786,22 @@ static int xpad_probe(struct usb_interface *intf, const struct usb_device_id *id
 		goto err_free_in_urb;
 	}
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 237ff9b10cae... Input: xpad - don't depend on endpoint order
 	ep_irq_in = ep_irq_out = NULL;
 
 	for (i = 0; i < 2; i++) {
 		struct usb_endpoint_descriptor *ep =
 				&intf->cur_altsetting->endpoint[i].desc;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 2da1f7c60b63... Input: xpad - validate USB endpoint type during probe
 		if (usb_endpoint_xfer_int(ep)) {
 			if (usb_endpoint_dir_in(ep))
 				ep_irq_in = ep;
 			else
 				ep_irq_out = ep;
 		}
-<<<<<<< HEAD
-=======
-		if (usb_endpoint_dir_in(ep))
-			ep_irq_in = ep;
-		else
-			ep_irq_out = ep;
->>>>>>> 237ff9b10cae... Input: xpad - don't depend on endpoint order
-=======
->>>>>>> 2da1f7c60b63... Input: xpad - validate USB endpoint type during probe
 	}
 
 	if (!ep_irq_in || !ep_irq_out) {
 		error = -ENODEV;
-<<<<<<< HEAD
-=======
-	error = xpad_init_output(intf, xpad);
-	if (error)
->>>>>>> 40b3de594d27... Input: xpad - fix oops when attaching an unknown Xbox One gamepad
-=======
->>>>>>> 237ff9b10cae... Input: xpad - don't depend on endpoint order
 		goto err_free_in_urb;
 	}
 
@@ -2378,10 +1893,6 @@ static int xpad_suspend(struct usb_interface *intf, pm_message_t message)
 		 * or goes away.
 		 */
 		xpad360w_stop_input(xpad);
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 7d17ca91d929... Input: xpad - power off wireless 360 controllers on suspend
 
 		/*
 		 * The wireless adapter is going off now, so the
@@ -2391,11 +1902,6 @@ static int xpad_suspend(struct usb_interface *intf, pm_message_t message)
 		 */
 		if (auto_poweroff && xpad->pad_present)
 			xpad360w_poweroff_controller(xpad);
-<<<<<<< HEAD
-=======
->>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
-=======
->>>>>>> 7d17ca91d929... Input: xpad - power off wireless 360 controllers on suspend
 	} else {
 		mutex_lock(&input->mutex);
 		if (input->users)
@@ -2418,8 +1924,6 @@ static int xpad_resume(struct usb_interface *intf)
 		retval = xpad360w_start_input(xpad);
 	} else {
 		mutex_lock(&input->mutex);
-<<<<<<< HEAD
-<<<<<<< HEAD
 		if (input->users) {
 			retval = xpad_start_input(xpad);
 		} else if (xpad->xtype == XTYPE_XBOXONE) {
@@ -2430,22 +1934,6 @@ static int xpad_resume(struct usb_interface *intf)
 			 */
 			retval = xpad_start_xbox_one(xpad);
 		}
-=======
-		if (input->users)
-			retval = xpad_start_input(xpad);
->>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
-=======
-		if (input->users) {
-			retval = xpad_start_input(xpad);
-		} else if (xpad->xtype == XTYPE_XBOXONE) {
-			/*
-			 * Even if there are no users, we'll send Xbox One pads
-			 * the startup sequence so they don't sit there and
-			 * blink until somebody opens the input device again.
-			 */
-			retval = xpad_start_xbox_one(xpad);
-		}
->>>>>>> 1517734740c1... Input: xpad - restore LED state after device resume
 		mutex_unlock(&input->mutex);
 	}
 
