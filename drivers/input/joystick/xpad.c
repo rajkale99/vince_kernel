@@ -149,7 +149,11 @@ static const struct xpad_device {
 >>>>>>> 186e965edc7a... Input: xpad - correct xbox one pad device name
 =======
 	{ 0x045e, 0x02e3, "Microsoft X-Box One Elite pad", 0, XTYPE_XBOXONE },
+<<<<<<< HEAD
 >>>>>>> 1a9409ebba38... Input: xpad - xbox one elite controller support
+=======
+	{ 0x045e, 0x02ea, "Microsoft X-Box One S pad", 0, XTYPE_XBOXONE },
+>>>>>>> d4830857bb22... Input: xpad - add product ID for Xbox One S pad
 	{ 0x045e, 0x0291, "Xbox 360 Wireless Receiver (XBOX)", MAP_DPAD_TO_BUTTONS, XTYPE_XBOX360W },
 	{ 0x045e, 0x02d1, "Microsoft X-Box One pad", 0, XTYPE_XBOXONE },
 	{ 0x045e, 0x02dd, "Microsoft X-Box One pad (Firmware 2015)", 0, XTYPE_XBOXONE },
