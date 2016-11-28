@@ -1413,6 +1413,7 @@ static int xpad_play_effect(struct input_dev *dev, void *data, struct ff_effect 
 		packet->data[10] = 0xFF; /* on period */
 		packet->data[11] = 0x00; /* off period */
 		packet->data[12] = 0xFF; /* repeat count */
+<<<<<<< HEAD
 		packet->len = 13;
 
 =======
@@ -1431,6 +1432,8 @@ static int xpad_play_effect(struct input_dev *dev, void *data, struct ff_effect 
 		packet->data[10] = 0xFF;
 		packet->data[11] = 0x00;
 		packet->data[12] = 0x00;
+=======
+>>>>>>> 2d92cafaa9c8... Input: xpad - fix Xbox One rumble stopping after 2.5 secs
 		packet->len = 13;
 >>>>>>> 162a94765b7f... Input: xpad - update Xbox One Force Feedback Support
 		packet->pending = true;
