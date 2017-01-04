@@ -1966,26 +1966,39 @@ static int xpad_probe(struct usb_interface *intf, const struct usb_device_id *id
 	}
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 237ff9b10cae... Input: xpad - don't depend on endpoint order
 	ep_irq_in = ep_irq_out = NULL;
 
 	for (i = 0; i < 2; i++) {
 		struct usb_endpoint_descriptor *ep =
 				&intf->cur_altsetting->endpoint[i].desc;
 
+<<<<<<< HEAD
 		if (usb_endpoint_xfer_int(ep)) {
 			if (usb_endpoint_dir_in(ep))
 				ep_irq_in = ep;
 			else
 				ep_irq_out = ep;
 		}
+=======
+		if (usb_endpoint_dir_in(ep))
+			ep_irq_in = ep;
+		else
+			ep_irq_out = ep;
+>>>>>>> 237ff9b10cae... Input: xpad - don't depend on endpoint order
 	}
 
 	if (!ep_irq_in || !ep_irq_out) {
 		error = -ENODEV;
+<<<<<<< HEAD
 =======
 	error = xpad_init_output(intf, xpad);
 	if (error)
 >>>>>>> 40b3de594d27... Input: xpad - fix oops when attaching an unknown Xbox One gamepad
+=======
+>>>>>>> 237ff9b10cae... Input: xpad - don't depend on endpoint order
 		goto err_free_in_urb;
 	}
 
