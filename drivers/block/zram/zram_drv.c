@@ -29,6 +29,7 @@
 #include <linux/genhd.h>
 #include <linux/highmem.h>
 #include <linux/slab.h>
+#include <linux/backing-dev.h>
 #include <linux/string.h>
 #include <linux/vmalloc.h>
 #include <linux/err.h>
@@ -90,8 +91,22 @@ static int zram_show_mem_notifier(struct notifier_block *nb,
 		struct zram *zram = &zram_devices[i];
 		struct zram_meta *meta = zram->meta;
 
-		if (!down_read_trylock(&zram->init_lock))
-			continue;
+
+static void zram_revalidate_disk(struct zram *zram)
+{
+	revalidate_disk(zram->disk);
+	/* revalidate_disk reset the BDI_CAP_STABLE_WRITES so set again */
+	zram->disk->queue->backing_dev_info.capabilities |=
+		BDI_CAP_STABLE_WRITES;
+}
+
+/*
+ * Check if request is within bounds and aligned on zram logical blocks.
+ */
+static inline bool valid_io_request(struct zram *zram,
+		sector_t start, unsigned int size)
+{
+	u64 end, bound;
 
 		if (init_done(zram)) {
 			u64 val;
@@ -903,7 +918,7 @@ static ssize_t disksize_store(struct device *dev,
 	zram->comp = comp;
 	zram->disksize = disksize;
 	set_capacity(zram->disk, zram->disksize >> SECTOR_SHIFT);
-	revalidate_disk(zram->disk);
+	zram_revalidate_disk(zram);
 	up_write(&zram->init_lock);
 
 	return len;
@@ -950,8 +965,7 @@ static ssize_t reset_store(struct device *dev,
 	fsync_bdev(bdev);
 	zram_reset_device(zram);
 
-	mutex_unlock(&bdev->bd_mutex);
-	revalidate_disk(zram->disk);
+	zram_revalidate_disk(zram);
 	bdput(bdev);
 
 	return len;
