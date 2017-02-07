@@ -2137,6 +2137,7 @@ static int xpad_resume(struct usb_interface *intf)
 	} else {
 		mutex_lock(&input->mutex);
 <<<<<<< HEAD
+<<<<<<< HEAD
 		if (input->users) {
 			retval = xpad_start_input(xpad);
 		} else if (xpad->xtype == XTYPE_XBOXONE) {
@@ -2151,6 +2152,18 @@ static int xpad_resume(struct usb_interface *intf)
 		if (input->users)
 			retval = xpad_start_input(xpad);
 >>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
+=======
+		if (input->users) {
+			retval = xpad_start_input(xpad);
+		} else if (xpad->xtype == XTYPE_XBOXONE) {
+			/*
+			 * Even if there are no users, we'll send Xbox One pads
+			 * the startup sequence so they don't sit there and
+			 * blink until somebody opens the input device again.
+			 */
+			retval = xpad_start_xbox_one(xpad);
+		}
+>>>>>>> 1517734740c1... Input: xpad - restore LED state after device resume
 		mutex_unlock(&input->mutex);
 	}
 
