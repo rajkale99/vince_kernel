@@ -203,11 +203,8 @@ void calc_load_exit_idle(void)
 	/*
 	 * If we're still before the pending sample window, we're done.
 	 */
-<<<<<<< HEAD
+
 	this_rq->calc_load_update = READ_ONCE(calc_load_update);
-=======
-	this_rq->calc_load_update = calc_load_update;
->>>>>>> 520e6dd9554e... sched/loadavg: Avoid loadavg spikes caused by delayed NO_HZ accounting
 	if (time_before(jiffies, this_rq->calc_load_update))
 		return;
 
