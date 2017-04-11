@@ -508,7 +508,10 @@ static const struct usb_device_id xpad_table[] = {
 
 MODULE_DEVICE_TABLE(usb, xpad_table);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 struct xboxone_init_packet {
 	u16 idVendor;
 	u16 idProduct;
@@ -544,6 +547,7 @@ static const u8 xboxone_hori_init[] = {
 };
 
 /*
+<<<<<<< HEAD
  * This packet is required for most (all?) of the PDP pads to start
  * sending input reports. These pads include: (0x0e6f:0x02ab),
  * (0x0e6f:0x02a4), (0x0e6f:0x02a6).
@@ -577,6 +581,12 @@ static const u8 xboxone_rumblebegin_init[] = {
  * spin up to enough speed to actually vibrate the gamepad.
  */
 static const u8 xboxone_rumbleend_init[] = {
+=======
+ * A rumble packet is required for some PowerA pads to start
+ * sending input reports. One of those pads is (0x24c6:0x543a).
+ */
+static const u8 xboxone_zerorumble_init[] = {
+>>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 	0x09, 0x00, 0x00, 0x09, 0x00, 0x0F, 0x00, 0x00,
 	0x00, 0x00, 0x00, 0x00, 0x00
 };
@@ -591,6 +601,7 @@ static const struct xboxone_init_packet xboxone_init_packets[] = {
 	XBOXONE_INIT_PKT(0x0e6f, 0x0165, xboxone_hori_init),
 	XBOXONE_INIT_PKT(0x0f0d, 0x0067, xboxone_hori_init),
 	XBOXONE_INIT_PKT(0x0000, 0x0000, xboxone_fw2015_init),
+<<<<<<< HEAD
 	XBOXONE_INIT_PKT(0x0e6f, 0x0000, xboxone_pdp_init1),
 	XBOXONE_INIT_PKT(0x0e6f, 0x0000, xboxone_pdp_init2),
 	XBOXONE_INIT_PKT(0x24c6, 0x541a, xboxone_rumblebegin_init),
@@ -602,6 +613,13 @@ static const struct xboxone_init_packet xboxone_init_packets[] = {
 };
 
 
+=======
+	XBOXONE_INIT_PKT(0x24c6, 0x541a, xboxone_zerorumble_init),
+	XBOXONE_INIT_PKT(0x24c6, 0x542a, xboxone_zerorumble_init),
+	XBOXONE_INIT_PKT(0x24c6, 0x543a, xboxone_zerorumble_init),
+};
+
+>>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 struct xpad_output_packet {
 	u8 data[XPAD_PKT_LEN];
 	u8 len;
@@ -647,6 +665,7 @@ struct usb_xpad {
 
 	struct xpad_output_packet out_packets[XPAD_NUM_OUT_PACKETS];
 	int last_out_packet;
+	int init_seq;
 
 	int init_seq;
 
@@ -1034,7 +1053,10 @@ exit:
 }
 
 /* Callers must hold xpad->odata_lock spinlock */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 static bool xpad_prepare_next_init_packet(struct usb_xpad *xpad)
 {
 	const struct xboxone_init_packet *init_packet;
@@ -1067,18 +1089,27 @@ static bool xpad_prepare_next_init_packet(struct usb_xpad *xpad)
 }
 
 /* Callers must hold xpad->odata_lock spinlock */
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 static bool xpad_prepare_next_out_packet(struct usb_xpad *xpad)
 {
 	struct xpad_output_packet *pkt, *packet = NULL;
 	int i;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 	/* We may have init packets to send before we can send user commands */
 	if (xpad_prepare_next_init_packet(xpad))
 		return true;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 	for (i = 0; i < XPAD_NUM_OUT_PACKETS; i++) {
 		if (++xpad->last_out_packet >= XPAD_NUM_OUT_PACKETS)
 			xpad->last_out_packet = 0;
@@ -1303,12 +1334,16 @@ static int xpad_start_xbox_one(struct usb_xpad *xpad)
 	spin_lock_irqsave(&xpad->odata_lock, flags);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 	/*
 	 * Begin the init sequence by attempting to send a packet.
 	 * We will cycle through the init packet sequence before
 	 * sending any packets from the output ring.
 	 */
 	xpad->init_seq = 0;
+<<<<<<< HEAD
 =======
 	/* Xbox one controller needs to be initialized. */
 	packet->data[0] = 0x05;
@@ -1322,6 +1357,8 @@ static int xpad_start_xbox_one(struct usb_xpad *xpad)
 	/* Reset the sequence so we send out start packet first */
 	xpad->last_out_packet = -1;
 >>>>>>> 162a94765b7f... Input: xpad - update Xbox One Force Feedback Support
+=======
+>>>>>>> 7738fceb13aa... Input: xpad - support some quirky Xbox One pads
 	retval = xpad_try_sending_next_out_packet(xpad);
 
 	spin_unlock_irqrestore(&xpad->odata_lock, flags);
