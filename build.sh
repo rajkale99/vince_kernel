@@ -41,4 +41,4 @@ mv Image.gz-dtb zImage
 #~/toolchains//aarch64-linux-android-8.x/bin/aarch64-linux-android-strip --strip-unneeded *.ko && mkdir pronto && cp -a wlan.ko pronto_wlan.ko && mv pronto_wlan.ko pronto
 #mv ~/rkoreo/output/modules/ ~/rkoreo/dsm
 echo -e "$nc  Building Has Been Completed"
-cd ~/new
+cd ~/test
