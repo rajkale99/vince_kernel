@@ -173,17 +173,26 @@ static inline void zram_fill_page(char *ptr, unsigned long len,
 
 static bool page_same_filled(void *ptr, unsigned long *element)
 {
+/*<<<<<<< HEAD
 	unsigned long nr_migrated;
 	struct zram *zram = dev_to_zram(dev);
 	struct zram_meta *meta;
 
+=======
+*/
+	unsigned int pos;
+	unsigned long *page;
+	unsigned long val;
 
-	for (pos = 0; pos < PAGE_SIZE / sizeof(*page) - 1; pos++) {
-		if (page[pos] != page[pos + 1])
+	page = (unsigned long *)ptr;
+	val = page[0];
+
+	for (pos = 1; pos < PAGE_SIZE / sizeof(*page); pos++) {
+		if (val != page[pos])
 			return false;
 	}
 
-	*element = page[pos];
+	*element = val;
 
 	return true;
 }
