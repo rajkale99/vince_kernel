@@ -328,6 +328,7 @@ static const struct xpad_device {
 	{ 0x1689, 0xfd01, "Razer Onza Classic Edition", 0, XTYPE_XBOX360 },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	{ 0x1689, 0xfe00, "Razer Sabertooth", 0, XTYPE_XBOX360 },
 =======
 	{ 0x24c6, 0x542a, "Xbox ONE spectra", 0, XTYPE_XBOXONE },
@@ -335,15 +336,22 @@ static const struct xpad_device {
 >>>>>>> adde3608c9d0... Input: xpad - add more third-party controllers
 =======
 >>>>>>> d87b189bbbd4... Input: xpad - sort supported devices by USB ID
+=======
+	{ 0x1689, 0xfe00, "Razer Sabertooth", 0, XTYPE_XBOX360 },
+>>>>>>> 2de9c977c728... Input: xpad - add USB IDs for Mad Catz Brawlstick and Razer Sabertooth
 	{ 0x1bad, 0x0002, "Harmonix Rock Band Guitar", 0, XTYPE_XBOX360 },
 	{ 0x1bad, 0x0003, "Harmonix Rock Band Drumkit", MAP_DPAD_TO_BUTTONS, XTYPE_XBOX360 },
 	{ 0x1bad, 0x0130, "Ion Drum Rocker", MAP_DPAD_TO_BUTTONS, XTYPE_XBOX360 },
 	{ 0x1bad, 0xf016, "Mad Catz Xbox 360 Controller", 0, XTYPE_XBOX360 },
 	{ 0x1bad, 0xf018, "Mad Catz Street Fighter IV SE Fighting Stick", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
 <<<<<<< HEAD
+<<<<<<< HEAD
 	{ 0x1bad, 0xf019, "Mad Catz Brawlstick for Xbox 360", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
 =======
 >>>>>>> b8b7dbfd19ca... Input: xpad - sync supported devices with xboxdrv
+=======
+	{ 0x1bad, 0xf019, "Mad Catz Brawlstick for Xbox 360", MAP_TRIGGERS_TO_BUTTONS, XTYPE_XBOX360 },
+>>>>>>> 2de9c977c728... Input: xpad - add USB IDs for Mad Catz Brawlstick and Razer Sabertooth
 	{ 0x1bad, 0xf021, "Mad Cats Ghost Recon FS GamePad", 0, XTYPE_XBOX360 },
 	{ 0x1bad, 0xf023, "MLG Pro Circuit Controller (Xbox)", 0, XTYPE_XBOX360 },
 	{ 0x1bad, 0xf025, "Mad Catz Call Of Duty", 0, XTYPE_XBOX360 },
