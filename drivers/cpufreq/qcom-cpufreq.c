@@ -252,13 +252,17 @@ static int msm_cpufreq_suspend(void)
 static int msm_cpufreq_resume(void)
 {
 
-	int cpu = 0, ret = 0;
+	int cpu = 0;
+#ifndef CONFIG_CPU_BOOST
+	int ret = 0;
 	struct cpufreq_policy policy;
+#endif
 
 	for_each_possible_cpu(cpu) {
 		per_cpu(suspend_data, cpu).device_suspended = 0;
 	}
 
+#ifndef CONFIG_CPU_BOOST
 	/*
 	 * Freq request might be rejected during suspend, resulting
 	 * in policy->cur violating min/max constraint.
@@ -280,6 +284,7 @@ static int msm_cpufreq_resume(void)
 				cpu);
 	}
 	put_online_cpus();
+#endif
 
 	return NOTIFY_DONE;
 }
