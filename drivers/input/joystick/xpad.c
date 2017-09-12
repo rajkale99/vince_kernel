@@ -2193,18 +2193,24 @@ static int xpad_probe(struct usb_interface *intf, const struct usb_device_id *id
 				&intf->cur_altsetting->endpoint[i].desc;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2da1f7c60b63... Input: xpad - validate USB endpoint type during probe
 		if (usb_endpoint_xfer_int(ep)) {
 			if (usb_endpoint_dir_in(ep))
 				ep_irq_in = ep;
 			else
 				ep_irq_out = ep;
 		}
+<<<<<<< HEAD
 =======
 		if (usb_endpoint_dir_in(ep))
 			ep_irq_in = ep;
 		else
 			ep_irq_out = ep;
 >>>>>>> 237ff9b10cae... Input: xpad - don't depend on endpoint order
+=======
+>>>>>>> 2da1f7c60b63... Input: xpad - validate USB endpoint type during probe
 	}
 
 	if (!ep_irq_in || !ep_irq_out) {
