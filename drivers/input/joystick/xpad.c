@@ -299,6 +299,7 @@ static const struct xpad_device {
 	{ 0x0e6f, 0x021f, "Rock Candy Gamepad for Xbox 360", 0, XTYPE_XBOX360 },
 	{ 0x0e6f, 0x0246, "Rock Candy Gamepad for Xbox One 2015", 0, XTYPE_XBOXONE },
 <<<<<<< HEAD
+<<<<<<< HEAD
 	{ 0x0e6f, 0x02ab, "PDP Controller for Xbox One", 0, XTYPE_XBOXONE },
 	{ 0x0e6f, 0x02a4, "PDP Wired Controller for Xbox One - Stealth Series", 0, XTYPE_XBOXONE },
 	{ 0x0e6f, 0x02a6, "PDP Wired Controller for Xbox One - Camo Series", 0, XTYPE_XBOXONE },
@@ -315,6 +316,9 @@ static const struct xpad_device {
 >>>>>>> d87b189bbbd4... Input: xpad - sort supported devices by USB ID
 =======
 >>>>>>> b9805bd26b77... Input: xpad - sync supported devices with 360Controller
+=======
+	{ 0x0e6f, 0x02ab, "PDP Controller for Xbox One", 0, XTYPE_XBOXONE },
+>>>>>>> 849e8175a91e... Input: xpad - add support for PDP Xbox One controllers
 	{ 0x0e6f, 0x0301, "Logic3 Controller", 0, XTYPE_XBOX360 },
 	{ 0x0e6f, 0x0346, "Rock Candy Gamepad for Xbox One 2016", 0, XTYPE_XBOXONE },
 	{ 0x0e6f, 0x0401, "Logic3 Controller", 0, XTYPE_XBOX360 },
@@ -699,18 +703,28 @@ static const u8 xboxone_hori_init[] = {
 /*
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
  * This packet is required for most (all?) of the PDP pads to start
  * sending input reports. These pads include: (0x0e6f:0x02ab),
  * (0x0e6f:0x02a4), (0x0e6f:0x02a6).
+=======
+ * This packet is required for some of the PDP pads to start
+ * sending input reports. One of those pads is (0x0e6f:0x02ab).
+>>>>>>> 849e8175a91e... Input: xpad - add support for PDP Xbox One controllers
  */
 static const u8 xboxone_pdp_init1[] = {
 	0x0a, 0x20, 0x00, 0x03, 0x00, 0x01, 0x14
 };
 
 /*
+<<<<<<< HEAD
  * This packet is required for most (all?) of the PDP pads to start
  * sending input reports. These pads include: (0x0e6f:0x02ab),
  * (0x0e6f:0x02a4), (0x0e6f:0x02a6).
+=======
+ * This packet is required for some of the PDP pads to start
+ * sending input reports. One of those pads is (0x0e6f:0x02ab).
+>>>>>>> 849e8175a91e... Input: xpad - add support for PDP Xbox One controllers
  */
 static const u8 xboxone_pdp_init2[] = {
 	0x06, 0x20, 0x00, 0x02, 0x01, 0x00
@@ -771,10 +785,15 @@ static const struct xboxone_init_packet xboxone_init_packets[] = {
 	XBOXONE_INIT_PKT(0x0000, 0x0000, xboxone_fw2015_init),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 	XBOXONE_INIT_PKT(0x0e6f, 0x0000, xboxone_pdp_init1),
 	XBOXONE_INIT_PKT(0x0e6f, 0x0000, xboxone_pdp_init2),
 =======
 >>>>>>> 3aa211c85984... Input: xpad - fix PowerA init quirk for some gamepad models
+=======
+	XBOXONE_INIT_PKT(0x0e6f, 0x02ab, xboxone_pdp_init1),
+	XBOXONE_INIT_PKT(0x0e6f, 0x02ab, xboxone_pdp_init2),
+>>>>>>> 849e8175a91e... Input: xpad - add support for PDP Xbox One controllers
 	XBOXONE_INIT_PKT(0x24c6, 0x541a, xboxone_rumblebegin_init),
 	XBOXONE_INIT_PKT(0x24c6, 0x542a, xboxone_rumblebegin_init),
 	XBOXONE_INIT_PKT(0x24c6, 0x543a, xboxone_rumblebegin_init),
