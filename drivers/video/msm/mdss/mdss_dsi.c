@@ -34,6 +34,9 @@
 #include "mdss_dsi_phy.h"
 #include "mdss_dba_utils.h"
 
+#include <linux/hqsysfs.h>
+#include "mdss_livedisplay.h"
+
 #define XO_CLK_RATE	19200000
 #define CMDLINE_DSI_CTL_NUM_STRING_LEN 2
 
@@ -272,7 +275,8 @@ static int mdss_dsi_regulator_init(struct platform_device *pdev,
 	return rc;
 }
 
-static int mdss_dsi_panel_power_off(struct mdss_panel_data *pdata)
+
+int mdss_dsi_panel_power_off(struct mdss_panel_data *pdata)
 {
 	int ret = 0;
 	struct mdss_dsi_ctrl_pdata *ctrl_pdata = NULL;
@@ -292,15 +296,15 @@ static int mdss_dsi_panel_power_off(struct mdss_panel_data *pdata)
 		ret = 0;
 	}
 
-	if (mdss_dsi_pinctrl_set_state(ctrl_pdata, false))
-		pr_debug("reset disable: pinctrl not enabled\n");
 
-	ret = msm_dss_enable_vreg(
-		ctrl_pdata->panel_power_data.vreg_config,
-		ctrl_pdata->panel_power_data.num_vreg, 0);
-	if (ret)
-		pr_err("%s: failed to disable vregs for %s\n",
-			__func__, __mdss_dsi_pm_name(DSI_PANEL_PM));
+	if (!synaptics_gesture_func_on) {
+		ret = msm_dss_enable_vreg(
+				ctrl_pdata->panel_power_data.vreg_config,
+				ctrl_pdata->panel_power_data.num_vreg, 0);
+		if (ret)
+			pr_err("%s: failed to disable vregs for %s\n",
+				__func__, __mdss_dsi_pm_name(DSI_PANEL_PM));
+	}
 
 end:
 	return ret;
@@ -2760,6 +2764,9 @@ static int mdss_dsi_event_handler(struct mdss_panel_data *pdata,
 					&ctrl_pdata->dba_work, HZ);
 		}
 		break;
+	case MDSS_EVENT_UPDATE_LIVEDISPLAY:
+		rc = mdss_livedisplay_update(ctrl_pdata, (int)(unsigned long) arg);
+		break;
 	default:
 		pr_debug("%s: unhandled event=%d\n", __func__, event);
 		break;
@@ -2892,6 +2899,23 @@ static struct device_node *mdss_dsi_find_panel_of_node(
 			__func__, panel_cfg, panel_name);
 		if (!strcmp(panel_name, NONE_PANEL))
 			goto exit;
+
+
+		if (!strcmp(panel_name, "qcom,mdss_dsi_td4310_fhd_video")) {
+		panel_suspend_reset_flag = 1;
+		panel_suspend_power_flag = 1;
+		hq_regiser_hw_info(HWID_LCM, "incell, vendor:tianma, IC:td4310(synaptics)");
+		} else if (!strcmp(panel_name, "qcom,mdss_dsi_td4310_fhdplus_video_e7")) {
+			hq_regiser_hw_info(HWID_LCM, "incell, vendor:Tianma, IC:TD4310(synaptics)");
+		} else if (!strcmp(panel_name, "qcom,mdss_dsi_td4310_fhdplus_video_e7_g55")) {
+			hq_regiser_hw_info(HWID_LCM, "incell, vendor:Tianma_G55, IC:TD4310(synaptics)");
+		} else if (!strcmp(panel_name, "qcom,mdss_dsi_td4310_ebbg_fhdplus_video_e7")) {
+			hq_regiser_hw_info(HWID_LCM, "incell, vendor:EBBG, IC:TD4310(synaptics)");
+		} else if (!strcmp(panel_name, "qcom,mdss_dsi_nt36672_tianma_fhdplus_video_e7")) {
+			hq_regiser_hw_info(HWID_LCM, "incell, vendor:Tianma, IC:NT36672(novatek)");
+		} else if (!strcmp(panel_name, "qcom,mdss_dsi_nt36672_csot_fhdplus_video_e7")) {
+			hq_regiser_hw_info(HWID_LCM, "incell, vendor:CSOT, IC:NT36672(novatek)");
+		}
 
 		mdss_node = of_parse_phandle(pdev->dev.of_node,
 			"qcom,mdss-mdp", 0);

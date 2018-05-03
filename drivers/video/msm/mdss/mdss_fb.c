@@ -55,7 +55,11 @@
 #include "mdss_smmu.h"
 #include "mdss_mdp.h"
 #include "mdp3_ctrl.h"
+#include "mdss_livedisplay.h"
 
+extern struct mdss_dsi_ctrl_pdata *change_par_ctrl ;
+extern int change_par_buf;
+extern int LCM_effect[3];
 #ifdef CONFIG_FB_MSM_TRIPLE_BUFFER
 #define MDSS_FB_NUM 3
 #else
@@ -930,7 +934,8 @@ static int mdss_fb_create_sysfs(struct msm_fb_data_type *mfd)
 	rc = sysfs_create_group(&mfd->fbi->dev->kobj, &mdss_fb_attr_group);
 	if (rc)
 		pr_err("sysfs group creation failed, rc=%d\n", rc);
-	return rc;
+
+	return mdss_livedisplay_create_sysfs(mfd);
 }
 
 static void mdss_fb_remove_sysfs(struct msm_fb_data_type *mfd)

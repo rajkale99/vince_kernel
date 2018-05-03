@@ -27,6 +27,7 @@
 #ifdef TARGET_HW_MDSS_HDMI
 #include "mdss_dba_utils.h"
 #endif
+#include "mdss_livedisplay.h"
 #define DT_CMD_HDR 6
 #define MIN_REFRESH_RATE 48
 #define DEFAULT_MDP_TRANSFER_TIME 14000
@@ -339,6 +340,8 @@ disp_en_gpio_err:
 	return rc;
 }
 
+
+extern int panel_suspend_reset_flag;
 int mdss_dsi_panel_reset(struct mdss_panel_data *pdata, int enable)
 {
 	struct mdss_dsi_ctrl_pdata *ctrl_pdata = NULL;
@@ -480,7 +483,8 @@ int mdss_dsi_panel_reset(struct mdss_panel_data *pdata, int enable)
 			gpio_set_value((ctrl_pdata->disp_en_gpio), 0);
 			gpio_free(ctrl_pdata->disp_en_gpio);
 		}
-		gpio_set_value((ctrl_pdata->rst_gpio), 0);
+
+
 		gpio_free(ctrl_pdata->rst_gpio);
 		if (gpio_is_valid(ctrl_pdata->mode_gpio))
 			gpio_free(ctrl_pdata->mode_gpio);
@@ -892,6 +896,10 @@ static int mdss_dsi_panel_on(struct mdss_panel_data *pdata)
 	/* Ensure low persistence mode is set as before */
 	mdss_dsi_panel_apply_display_setting(pdata, pinfo->persist_mode);
 
+	if (pdata->event_handler)
+		pdata->event_handler(pdata, MDSS_EVENT_UPDATE_LIVEDISPLAY,
+				(void *)(unsigned long) MODE_UPDATE_ALL);
+
 end:
 	pr_debug("%s:-\n", __func__);
 	return ret;
@@ -1048,7 +1056,7 @@ static void mdss_dsi_parse_trigger(struct device_node *np, char *trigger,
 }
 
 
-static int mdss_dsi_parse_dcs_cmds(struct device_node *np,
+int mdss_dsi_parse_dcs_cmds(struct device_node *np,
 		struct dsi_panel_cmds *pcmds, char *cmd_key, char *link_key)
 {
 	const char *data;
@@ -2826,6 +2834,8 @@ static int mdss_panel_parse_dt(struct device_node *np,
 	rc = mdss_panel_parse_dt_hdmi(np, ctrl_pdata);
 	if (rc)
 		goto error;
+
+	mdss_livedisplay_parse_dt(np, pinfo);
 
 	return 0;
 
