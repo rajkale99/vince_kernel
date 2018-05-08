@@ -2010,9 +2010,12 @@ static void xpad_set_up_abs(struct input_dev *input_dev, signed short abs)
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 	set_bit(abs, input_dev->absbit);
 >>>>>>> 69fe32cddbc7... Input: xpad - fix some coding style issues
 
+=======
+>>>>>>> 2a1605650e01... Input: xpad - avoid using __set_bit() for capabilities
 	switch (abs) {
 	case ABS_X:
 	case ABS_Y:
@@ -2076,9 +2079,12 @@ static int xpad_init_input(struct usb_xpad *xpad)
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 	__set_bit(EV_KEY, input_dev->evbit);
 >>>>>>> 0d5f5eafb5a8... Input: xpad - workaround dead irq_out after suspend/ resume
 
+=======
+>>>>>>> 2a1605650e01... Input: xpad - avoid using __set_bit() for capabilities
 	if (!(xpad->mapping & MAP_STICKS_TO_NULL)) {
 		/* set up axes */
 		for (i = 0; xpad_abs[i] >= 0; i++)
