@@ -93,20 +93,15 @@ echo -e "[3] Custom Toolchain"
 echo -ne "\n$brown(i) Select Toolchain[1-4]:$nc "
 read TC
 
-BUILD_START=$(date +"%s")
-DATE=`date`
-echo -e "\n$cyan#######################################################################$nc"
-echo -e "$brown(i) Build started at $DATE$nc"
-
   if [[ "$TC" == "1" ]]; then
-  echo -e "$blue building with stock GCC..."
+  echo -e "\n$blue building with stock GCC..."
   export CROSS_COMPILE="$PWD/toolchains/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
   make  O=out $CONFIG $THREAD &>/dev/null
   make  O=out $THREAD &>Buildlog.txt & pid=$!   
   fi
 
 if [[ "$TC" == "2" ]]; then
-  echo -e "$blue building with stock Clang..."
+  echo -e "\n$blue building with stock Clang..."
   export CLANG_PATH="$PWD/toolchains/linux-x86/clang-4053586"
   export PATH=${CLANG_PATH}:${PATH}
   make O=out $CONFIG $THREAD &>/dev/null  \
@@ -126,9 +121,9 @@ echo -ne "\n$brown(i) Select Custom Toolchain[1-4]:$nc "
 read customTC
 if [[ "$customTC" == "1" ]]; then
   cd toolchains/Toolchains
-  git checkout opt-gnu-8.x
-  cd -
-  echo -e "$blue building with custom GCC 8.x..."
+  git checkout opt-gnu-8.x &>/dev/null 
+  cd - &>/dev/null
+  echo -e "\n$blue building with custom GCC 8.x..."
   export CROSS_COMPILE="$PWD/toolchains/Toolchains/bin/aarch64-opt-linux-android-"
   make  O=out $CONFIG $THREAD &>/dev/null
   make  O=out $THREAD &>Buildlog.txt & pid=$!   
@@ -136,9 +131,9 @@ fi
 
 if [[ "$customTC" == "2" ]]; then
   cd toolchains/Toolchains
-  git checkout opt-gnu-7.x
-  cd -
-  echo -e "$blue building with custom GCC 7.x..."
+  git checkout opt-gnu-7.x &>/dev/null
+  cd - &>/dev/null
+  echo -e "\n$blue building with custom GCC 7.x..."
   export CROSS_COMPILE="$PWD/toolchains/Toolchains/bin/aarch64-opt-linux-android-"
   make  O=out $CONFIG $THREAD &>/dev/null
   make  O=out $THREAD &>Buildlog.txt & pid=$!   
@@ -146,28 +141,31 @@ fi
 
 if [[ "$customTC" == "3" ]]; then
   cd toolchains/Toolchains
-  git checkout opt-linaro-7.x
-  cd -
-  echo -e "$blue building with custom linaro 7.x..."
+  git checkout opt-linaro-7.x cd - &>/dev/null
+  cd - cd - &>/dev/null
+  echo -e "\n$blue building with custom linaro 7.x..."
   export CROSS_COMPILE="$PWD/toolchains/Toolchains/bin/aarch64-opt-linux-android-"
   make  O=out $CONFIG $THREAD &>/dev/null
   make  O=out $THREAD &>Buildlog.txt & pid=$!   
 fi
 
 if [[ "$customTC" == "4" ]]; then
-  cd toolchains/Toolchains
-  git checkout dragonTC-7.0
-  cd -
-  echo -e "$blue building with custom Clang Dragon TC..."
+  cd toolchains/Toolchains 
+  git checkout dragonTC-7.0 &>/dev/null
+  cd - &>/dev/null
+  echo -e "\n$blue building with custom Clang Dragon TC..."
   export CLANG_PATH="$PWD/toolchains/Toolchains"
   export PATH=${CLANG_PATH}:${PATH}
   make O=out $CONFIG $THREAD &>/dev/null \
   CC="$PWD/toolchains/Toolchains/bin/clang" 
   make CC="$PWD/toolchains/toolchains/bin/clang" O=out $THREAD &>Buildlog.txt & pid=$! 
 fi
-
 fi
 
+BUILD_START=$(date +"%s")
+DATE=`date`
+echo -e "\n$cyan#######################################################################$nc"
+echo -e "$brown(i) Build started at $DATE$nc"
   spin[0]="$blue-"
   spin[1]="\\"
   spin[2]="|"
@@ -185,6 +183,7 @@ fi
   if ! [ -a $KERN_IMG ]; then
     echo -e "\n$red(!) Kernel compilation failed, See buildlog to fix errors $nc"
     echo -e "$red#######################################################################$nc"
+    git checkout darky &>/dev/null  
     exit 1
   fi
   $DTBTOOL -2 -o $KERNEL_DIR/arch/arm/boot/dt.img -s 2048 -p $KERNEL_DIR/scripts/dtc/ $KERNEL_DIR/arch/arm/boot/dts/ &>/dev/null &>/dev/null
@@ -195,6 +194,7 @@ fi
   echo -e "$cyan#######################################################################$nc"
   echo -e "$purple(i) Total time elapsed: $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds.$nc"
   echo -e "$cyan#######################################################################$nc"
+  git checkout darky &>/dev/null  
 fi
 
 if [ "$choice" == "2" ]; then
@@ -221,16 +221,16 @@ if [ "$choice" == "4" ]; then
   cd $ZIP_DIR
   make clean &>/dev/null
   cp $KERN_IMG $ZIP_DIR/boot/zImage
-  if [[ "$type" == "1" && "$TC" == "1" || "$TC" == "2" ]]; then
+  if [[ "$type" == "1" && "$TC" == "1" ||  "$customTC" == "1" || "$customTC" == "2" || "$customTC" == "3" ]]; then
     make normal &>/dev/null
   fi
-  if [[ "$type" == "1" && "$TC" == "3" || "$TC" == "4" ]]; then
+  if [[ "$type" == "1" && "$TC" == "2" || "$customTC" == "4" ]]; then
     make nclang &>/dev/null
   fi
-  if [[ "$type" == "2" && "$TC" == "1" || "$TC" == "2" ]]; then
+   if [[ "$type" == "2" && "$TC" == "1" ||  "$customTC" == "1" || "$customTC" == "2" || "$customTC" == "3" ]]; then
     make treble &>/dev/null
   fi
-    if [[ "$type" == "2" && "$TC" == "3" || "$TC" == "4" ]]; then
+   if [[ "$type" == "2" && "$TC" == "2" || "$customTC" == "4" ]]; then
     make tclang &>/dev/null
   fi
   cd ..

@@ -54,6 +54,4 @@ clean:
 	@rm -vf boot/zImage
 	@echo "Done."
 
-sign:
-	java -classpath testsign.jar testsign "$(NAME)-$(CODE)-$(DATE)".zip "$(NAME)-$(CODE)-$(DATE)"-signed.zip
 
