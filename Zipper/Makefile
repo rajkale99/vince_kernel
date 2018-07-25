@@ -10,7 +10,7 @@ CZIP := $(NAME)-$(CODE)-Clang-$(DATE).zip
 TZIP := $(NAME)-$(CODE)-Treble-$(DATE).zip
 CTZIP := $(NAME)-$(CODE)-Treble-Clang-$(DATE).zip
 
-EXCLUDE := Makefile *.git* *.jar*
+EXCLUDE := Makefile *.git* *.jar* Dark-Ages*
 
 normal: $(ZIP)
 nclang: $(CZIP)
