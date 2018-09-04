@@ -22,6 +22,7 @@
 #include <linux/slab.h>
 #include <linux/input.h>
 #include <linux/time.h>
+#include <linux/cpu_boost.h>
 
 struct cpu_sync {
 	int cpu;
@@ -138,6 +139,7 @@ static int boost_adjust_notify(struct notifier_block *nb, unsigned long val,
 		if (!ib_min)
 			break;
 
+<<<<<<< HEAD
 
 		ib_min = min((s->input_boost_min == UINT_MAX ?
 				policy->max : s->input_boost_min), policy->max);
@@ -150,6 +152,10 @@ static int boost_adjust_notify(struct notifier_block *nb, unsigned long val,
 			if (ib_min <= policy->min)
 				break;
 		}
+=======
+		ib_min = min((s->input_boost_min == UINT_MAX ?
+				policy->max : s->input_boost_min), policy->max);
+>>>>>>> 7f4fbc6455e9... cpu-boost: add a function to boost the cpu to max freq
 
 		pr_debug("CPU%u policy min before boost: %u kHz\n",
 			 cpu, policy->min);
@@ -214,7 +220,8 @@ static void do_input_boost_rem(struct work_struct *work)
 	}
 }
 
-static void do_input_boost(struct work_struct *work)
+
+
 void do_input_boost_max()
 {
 	unsigned int i;
