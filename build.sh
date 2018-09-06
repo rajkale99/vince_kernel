@@ -207,8 +207,7 @@ if [ "$choice" == "4" ]; then
   echo -e "\n$cyan#######################################################################$nc"
   cd $ZIP_DIR
   make clean &>/dev/null
-  cp $KERN_IMG $ZIP_DIR/boot/zImage
-  cp $KERN_IMG $ZIP_DIR/kernel/Image.gz
+  cp $KERNEL_IMG $ZIP_DIR/kernel/Image.gz
   cp $DTB_T $ZIP_DIR/kernel/treble/msm8953-qrd-sku3-e7-treble.dtb
   cp $DTB $ZIP_DIR/kernel/normal/msm8953-qrd-sku3-e7-non-treble.dtb
   if [[ "$TC" == "1" ||  "$customTC" == "1" || "$customTC" == "2" || "$customTC" == "3" ]]; then
