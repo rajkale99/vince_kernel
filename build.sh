@@ -170,7 +170,6 @@ echo -e "$brown(i) Build started at $DATE$nc"
   if ! [ -a $KERNEL_IMG ]; then
     echo -e "\n$red(!) Kernel compilation failed, See buildlog to fix errors $nc"
     echo -e "$red#######################################################################$nc"
-    git checkout darky &>/dev/null  
     exit 1
   fi
   $DTBTOOL -2 -o $KERNEL_DIR/arch/arm/boot/dt.img -s 2048 -p $KERNEL_DIR/scripts/dtc/ $KERNEL_DIR/arch/arm/boot/dts/ &>/dev/null &>/dev/null
@@ -181,7 +180,6 @@ echo -e "$brown(i) Build started at $DATE$nc"
   echo -e "$cyan#######################################################################$nc"
   echo -e "$purple(i) Total time elapsed: $(($DIFF / 60)) minute(s) and $(($DIFF % 60)) seconds.$nc"
   echo -e "$cyan#######################################################################$nc"
-  git checkout darky &>/dev/null  
 fi
 
 if [ "$choice" == "2" ]; then
