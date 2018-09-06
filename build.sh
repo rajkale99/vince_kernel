@@ -28,7 +28,9 @@ nc='\033[0m'
 
 #Directories
 KERNEL_DIR=$PWD
-KERN_IMG=$KERNEL_DIR/out/arch/arm64/boot/Image.gz-dtb
+KERN_IMG=$KERNEL_DIR/out/arch/arm64/boot/Image.gz
+DTB=$KERNEL_DIR/out/arch/arm64/boot/dts/qcom/msm8953-qrd-sku3-e7-non-treble.dtb
+DTB_T=$KERNEL_DIR/out/arch/arm64/boot/dts/qcom/msm8953-qrd-sku3-e7-treble.dtb
 ZIP_DIR=$KERNEL_DIR/Zipper
 CONFIG_DIR=$KERNEL_DIR/arch/arm64/configs
 
@@ -71,22 +73,7 @@ echo -ne "\n$brown(i) Please enter a choice[1-6]:$nc "
 read choice
 
 if [ "$choice" == "1" ]; then
-  echo -e "\n$green[1] Non-Treble"
-  echo -e "[2] Treble"
-  echo -ne "\n$brown(i) Select Kernel Variant[1-2]:$nc "
-read type
-  if [[ "$type" == "1" ]]; then
-    #change branch to non treble before proceeding
-    git checkout darky &>/dev/null
-    echo -e "$blue\nSwitched to Non-Treble Branch"
-  fi
 
-  if [[ "$type" == "2" ]]; then
-    #change branch to  treble before proceeding
-    git checkout darky-treble &>/dev/null
-    echo -e "$blue\nSwitched to Treble Branch"
-  fi
-  
 echo -e "\n$green[1] Stock GCC"
 echo -e "[2] Stock Clang"
 echo -e "[3] Custom Toolchain"
@@ -180,7 +167,7 @@ echo -e "$brown(i) Build started at $DATE$nc"
     done
   done
 
-  if ! [ -a $KERN_IMG ]; then
+  if ! [ -a $KERNEL_IMG ]; then
     echo -e "\n$red(!) Kernel compilation failed, See buildlog to fix errors $nc"
     echo -e "$red#######################################################################$nc"
     git checkout darky &>/dev/null  
@@ -221,17 +208,14 @@ if [ "$choice" == "4" ]; then
   cd $ZIP_DIR
   make clean &>/dev/null
   cp $KERN_IMG $ZIP_DIR/boot/zImage
-  if [[ "$type" == "1" && "$TC" == "1" ||  "$customTC" == "1" || "$customTC" == "2" || "$customTC" == "3" ]]; then
+  cp $KERN_IMG $ZIP_DIR/kernel/Image.gz
+  cp $DTB_T $ZIP_DIR/kernel/treble/msm8953-qrd-sku3-e7-treble.dtb
+  cp $DTB $ZIP_DIR/kernel/normal/msm8953-qrd-sku3-e7-non-treble.dtb
+  if [[ "$TC" == "1" ||  "$customTC" == "1" || "$customTC" == "2" || "$customTC" == "3" ]]; then
     make normal &>/dev/null
   fi
-  if [[ "$type" == "1" && "$TC" == "2" || "$customTC" == "4" ]]; then
+  if [[ "$TC" == "2" || "$customTC" == "4" ]]; then
     make nclang &>/dev/null
-  fi
-   if [[ "$type" == "2" && "$TC" == "1" ||  "$customTC" == "1" || "$customTC" == "2" || "$customTC" == "3" ]]; then
-    make treble &>/dev/null
-  fi
-   if [[ "$type" == "2" && "$TC" == "2" || "$customTC" == "4" ]]; then
-    make tclang &>/dev/null
   fi
   cd ..
   echo -e "$purple(i) Flashable zip generated under $ZIP_DIR.$nc"
