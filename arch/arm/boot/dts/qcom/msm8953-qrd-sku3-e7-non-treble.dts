@@ -12,6 +12,7 @@
  * GNU General Public License for more details.
  */
  /dts-v1/;
+
 #include "msm8953_e7.dtsi"
 #include "msm8953-qrd-sku3_e7.dtsi"
  / {

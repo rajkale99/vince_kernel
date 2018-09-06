@@ -28,7 +28,7 @@ nc='\033[0m'
 
 #Directories
 KERNEL_DIR=$PWD
-KERN_IMG=$KERNEL_DIR/out/arch/arm64/boot/Image.gz
+KERNEL_IMG=$KERNEL_DIR/out/arch/arm64/boot/Image.gz
 DTB=$KERNEL_DIR/out/arch/arm64/boot/dts/qcom/msm8953-qrd-sku3-e7-non-treble.dtb
 DTB_T=$KERNEL_DIR/out/arch/arm64/boot/dts/qcom/msm8953-qrd-sku3-e7-treble.dtb
 ZIP_DIR=$KERNEL_DIR/Zipper

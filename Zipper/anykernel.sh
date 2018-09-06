@@ -4,15 +4,12 @@
 ## AnyKernel setup
 # begin properties
 properties() { '
-kernel.string=Dark-Ages By Blacksuan19
+kernel.string=Dark-Ages Kernel By Blacksuan19
 do.devicecheck=1
 do.modules=0
 do.cleanup=1
 do.cleanuponabort=1
 device.name1=vince
-device.name2=Vince
-device.name3=Redmi 5 Plus
-device.name3=Redmi Note 5
 '; } # end properties
 
 # shell variables
@@ -28,8 +25,8 @@ is_slot_device=0;
 
 ## AnyKernel file attributes
 # set permissions/ownership for included ramdisk files
-chmod -R 750 $ramdisk/*;
-chown -R root:root $ramdisk/*;
+#chmod -R 750 $ramdisk/*;
+#chown -R root:root $ramdisk/*;
 
 
 ## AnyKernel install
@@ -37,6 +34,7 @@ dump_boot;
 
 # begin ramdisk changes
 
+# inject init
 
 
 # sepolicy
