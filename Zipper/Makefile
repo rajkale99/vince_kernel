@@ -9,7 +9,7 @@ ZIP := $(NAME)-$(CODE)-$(DATE).zip
 CZIP := $(NAME)-$(CODE)-Clang-$(DATE).zip
 
 
-EXCLUDE := Makefile *.git* *.jar* Dark-Ages*
+EXCLUDE := Makefile *.git* *.jar* Dark-Ages* *placeholder*
 
 normal: $(ZIP)
 clang: $(CZIP)
