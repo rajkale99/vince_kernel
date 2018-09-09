@@ -109,7 +109,6 @@ if [[ "$customTC" == "3" ]]; then
   export CLANG_PATH="$PWD/toolchains/Toolchains"
   export PATH=${CLANG_PATH}:${PATH}
   make O=out $CONFIG $THREAD &>/dev/null \
-  CC="$PWD/toolchains/Toolchains/bin/clang" 
   make CC="$PWD/toolchains/Toolchains/bin/clang" O=out $THREAD &>Buildlog.txt & pid=$! 
 fi
 
@@ -121,7 +120,6 @@ if [[ "$customTC" == "4" ]]; then
   export CLANG_PATH="$PWD/toolchains/Toolchains"
   export PATH=${CLANG_PATH}:${PATH}
   make O=out $CONFIG $THREAD &>/dev/null \
-  CC="$PWD/toolchains/Toolchains/bin/clang" 
   make CC="$PWD/toolchains/Toolchains/bin/clang" O=out $THREAD &>Buildlog.txt & pid=$! 
 fi
 
