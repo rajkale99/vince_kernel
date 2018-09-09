@@ -247,7 +247,7 @@ int alloc_rt_sched_group(struct task_group *tg, struct task_group *parent)
 
 #ifdef CONFIG_SMP
 
-static int pull_rt_task(struct rq *this_rq);
+static void pull_rt_task(struct rq *this_rq);
 
 static inline bool need_pull_rt_task(struct rq *rq, struct task_struct *prev)
 {
@@ -341,6 +341,12 @@ static inline int has_pushable_tasks(struct rq *rq)
 	return !plist_head_empty(&rq->rt.pushable_tasks);
 }
 
+static DEFINE_PER_CPU(struct callback_head, rt_push_head);
+static DEFINE_PER_CPU(struct callback_head, rt_pull_head);
+
+static void push_rt_tasks(struct rq *);
+static void pull_rt_task(struct rq *);
+
 static inline void set_post_schedule(struct rq *rq)
 {
 	/*
@@ -350,6 +356,11 @@ static inline void set_post_schedule(struct rq *rq)
 	rq->post_schedule = has_pushable_tasks(rq);
 }
 
+static inline void queue_pull_task(struct rq *rq)
+{
+	queue_balance_callback(rq, &per_cpu(rt_pull_head, rq->cpu),
+		pull_rt_task);
+}
 static void enqueue_pushable_task(struct rq *rq, struct task_struct *p)
 {
 	plist_del(&p->pushable_tasks, &rq->rt.pushable_tasks);
@@ -2174,7 +2185,6 @@ void rto_push_irq_work_func(struct irq_work *work)
 #endif /* HAVE_RT_PUSH_IPI */
 
 static void pull_rt_task(struct rq *this_rq)
-
 {
 	int this_cpu = this_rq->cpu, ret = 0, cpu;
 	struct task_struct *p;
@@ -2364,8 +2374,7 @@ static void switched_from_rt(struct rq *rq, struct task_struct *p)
 	if (!task_on_rq_queued(p) || rq->rt.rt_nr_running)
 		return;
 
-	if (pull_rt_task(rq))
-		resched_curr(rq);
+	queue_pull_task(rq);
 }
 
 void __init init_sched_rt_class(void)
