@@ -74,36 +74,10 @@ read choice
 
 if [ "$choice" == "1" ]; then
 
-echo -e "\n$green[1] Stock GCC"
-echo -e "[2] Stock Clang"
-echo -e "[3] Custom Toolchain"
-echo -ne "\n$brown(i) Select Toolchain[1-4]:$nc "
-read TC
-
-  if [[ "$TC" == "1" ]]; then
-  echo -e "\n$blue building with stock GCC..."
-  export CROSS_COMPILE="$PWD/toolchains/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-"
-  make  O=out $CONFIG $THREAD &>/dev/null
-  make  O=out $THREAD &>Buildlog.txt & pid=$!   
-  fi
-
-if [[ "$TC" == "2" ]]; then
-  echo -e "\n$blue building with stock Clang..."
-  export CLANG_PATH="$PWD/toolchains/linux-x86/clang-4053586"
-  export PATH=${CLANG_PATH}:${PATH}
-  make O=out $CONFIG $THREAD &>/dev/null  \
-               CC="$PWD/toolchains/linux-x86/clang-4053586/bin/clang"  \
-               CROSS_COMPILE="$PWD/toolchains/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-" 
-  make O=out $THREAD &>Buildlog.txt & pid=$! \
-               CC="$PWD/toolchains/linux-x86/clang-4053586/bin/clang"  \
-               CROSS_COMPILE="$PWD/toolchains/linux-x86/aarch64/aarch64-linux-android-4.9/bin/aarch64-linux-android-" 
-  fi
-
-if [[ "$TC" == "3" ]]; then
 echo -e "\n$green[1] GCC 8.1"
-echo -e "[2] GCC 7.x"
-echo -e "[3] Linaro 7.x"
-echo -e "[4] DragonTC 7.0"
+echo -e "[2] Linaro 7.x"
+echo -e "[3] DragonTC 7.0"
+echo -e "[4] DragonTC 8.0"
 echo -ne "\n$brown(i) Select Custom Toolchain[1-4]:$nc "
 read customTC
 if [[ "$customTC" == "1" ]]; then
@@ -116,17 +90,8 @@ if [[ "$customTC" == "1" ]]; then
   make  O=out $THREAD &>Buildlog.txt & pid=$!   
 fi
 
-if [[ "$customTC" == "2" ]]; then
-  cd toolchains/Toolchains
-  git checkout opt-gnu-7.x &>/dev/null
-  cd - &>/dev/null
-  echo -e "\n$blue building with custom GCC 7.x..."
-  export CROSS_COMPILE="$PWD/toolchains/Toolchains/bin/aarch64-opt-linux-android-"
-  make  O=out $CONFIG $THREAD &>/dev/null
-  make  O=out $THREAD &>Buildlog.txt & pid=$!   
-fi
 
-if [[ "$customTC" == "3" ]]; then
+if [[ "$customTC" == "2" ]]; then
   cd toolchains/Toolchains
   git checkout opt-linaro-7.x cd - &>/dev/null
   cd - cd - &>/dev/null
@@ -136,18 +101,30 @@ if [[ "$customTC" == "3" ]]; then
   make  O=out $THREAD &>Buildlog.txt & pid=$!   
 fi
 
-if [[ "$customTC" == "4" ]]; then
+if [[ "$customTC" == "3" ]]; then
   cd toolchains/Toolchains 
   git checkout dragonTC-7.0 &>/dev/null
   cd - &>/dev/null
-  echo -e "\n$blue building with custom Clang Dragon TC..."
+  echo -e "\n$blue building with custom Clang Dragon TC 7.0..."
   export CLANG_PATH="$PWD/toolchains/Toolchains"
   export PATH=${CLANG_PATH}:${PATH}
   make O=out $CONFIG $THREAD &>/dev/null \
   CC="$PWD/toolchains/Toolchains/bin/clang" 
-  make CC="$PWD/toolchains/toolchains/bin/clang" O=out $THREAD &>Buildlog.txt & pid=$! 
+  make CC="$PWD/toolchains/Toolchains/bin/clang" O=out $THREAD &>Buildlog.txt & pid=$! 
 fi
+
+if [[ "$customTC" == "4" ]]; then
+  cd toolchains/Toolchains 
+  git checkout dragonTC-8.0 &>/dev/null
+  cd - &>/dev/null
+  echo -e "\n$blue building with custom Clang Dragon TC 8.0..."
+  export CLANG_PATH="$PWD/toolchains/Toolchains"
+  export PATH=${CLANG_PATH}:${PATH}
+  make O=out $CONFIG $THREAD &>/dev/null \
+  CC="$PWD/toolchains/Toolchains/bin/clang" 
+  make CC="$PWD/toolchains/Toolchains/bin/clang" O=out $THREAD &>Buildlog.txt & pid=$! 
 fi
+
 
 BUILD_START=$(date +"%s")
 DATE=`date`
@@ -208,10 +185,10 @@ if [ "$choice" == "4" ]; then
   cp $KERNEL_IMG $ZIP_DIR/kernel/Image.gz
   cp $DTB_T $ZIP_DIR/kernel/treble/msm8953-qrd-sku3-e7-treble.dtb
   cp $DTB $ZIP_DIR/kernel/normal/msm8953-qrd-sku3-e7-non-treble.dtb
-  if [[ "$TC" == "1" ||  "$customTC" == "1" || "$customTC" == "2" || "$customTC" == "3" ]]; then
+  if [[ "$customTC" == "1" || "$customTC" == "2" ]]; then
     make normal &>/dev/null
   fi
-  if [[ "$TC" == "2" || "$customTC" == "4" ]]; then
+  if [[ "$customTC" == "3" || "$customTC" == "4" ]]; then
     make nclang &>/dev/null
   fi
   cd ..
