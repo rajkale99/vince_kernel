@@ -47,7 +47,7 @@ static bool sched_boost_active;
 static struct delayed_work input_boost_rem;
 static u64 last_input_time;
 #define MIN_INPUT_INTERVAL (150 * USEC_PER_MSEC)
-
+static struct task_struct *cpu_boost_worker_thread;
 static int set_input_boost_freq(const char *buf, const struct kernel_param *kp)
 {
 	int i, ntokens = 0;
@@ -139,7 +139,6 @@ static int boost_adjust_notify(struct notifier_block *nb, unsigned long val,
 		if (!ib_min)
 			break;
 
-<<<<<<< HEAD
 
 		ib_min = min((s->input_boost_min == UINT_MAX ?
 				policy->max : s->input_boost_min), policy->max);
@@ -152,10 +151,6 @@ static int boost_adjust_notify(struct notifier_block *nb, unsigned long val,
 			if (ib_min <= policy->min)
 				break;
 		}
-=======
-		ib_min = min((s->input_boost_min == UINT_MAX ?
-				policy->max : s->input_boost_min), policy->max);
->>>>>>> 7f4fbc6455e9... cpu-boost: add a function to boost the cpu to max freq
 
 		pr_debug("CPU%u policy min before boost: %u kHz\n",
 			 cpu, policy->min);
