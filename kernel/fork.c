@@ -340,7 +340,8 @@ static struct task_struct *dup_task_struct(struct task_struct *orig)
 	err = arch_dup_task_struct(tsk, orig);
 	if (err)
 		goto free_ti;
-
+	
+	tsk->flags &= ~PF_SU;
 	tsk->stack = ti;
 #ifdef CONFIG_SECCOMP
 	/*
