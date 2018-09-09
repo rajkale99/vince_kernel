@@ -53,7 +53,7 @@ else
 	LINUX_COMPILE_HOST=$KBUILD_BUILD_HOST
 fi
 
-UTS_VERSION="#$VERSION"
+UTS_VERSION="#0"
 CONFIG_FLAGS=""
 if [ -n "$SMP" ] ; then CONFIG_FLAGS="SMP"; fi
 if [ -n "$PREEMPT" ] ; then CONFIG_FLAGS="$CONFIG_FLAGS PREEMPT"; fi
@@ -78,8 +78,10 @@ UTS_TRUNCATE="cut -b -$UTS_LEN"
 
   if [ -z "$KBUILD_COMPILER_STRING" ]; then
     echo \#define LINUX_COMPILER \"`$CC -v 2>&1 | grep ' version '`\"
+    echo \#define DARK_COMPILER \"Compiled With Dark-Engine\"
   else
     echo \#define LINUX_COMPILER \"$KBUILD_COMPILER_STRING\"
+    echo \#define DARK_COMPILER \"Compiled With Dark-Engine\"
   fi;
 ) > .tmpcompile
 
