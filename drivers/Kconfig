@@ -1,5 +1,8 @@
 menu "Device Drivers"
 
+config MIUI
+		bool "MIUI"
+		
 source "drivers/base/Kconfig"
 
 source "drivers/bus/Kconfig"
