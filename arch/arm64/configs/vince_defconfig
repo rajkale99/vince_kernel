@@ -1,10 +1,8 @@
 #
 # Automatically generated file; DO NOT EDIT.
-<<<<<<< HEAD:arch/arm64/configs/vince_defconfig
-# Linux/arm64 3.18.112 Kernel Configuration
-=======
+
 # Linux/arm64 3.18.120 Kernel Configuration
->>>>>>> 833a94c065e0... Update defconfig for an extra 112% performance improvement:arch/arm64/configs/franco_defconfig
+
 #
 CONFIG_ARM64=y
 CONFIG_64BIT=y
