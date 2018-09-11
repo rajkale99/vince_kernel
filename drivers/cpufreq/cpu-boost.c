@@ -358,7 +358,7 @@ static struct input_handler cpuboost_input_handler = {
 
 static int cpu_boost_init(void)
 {
-	int cpu, ret;
+	int cpu = 0, ret = 0;
 	struct cpu_sync *s;
 	struct sched_param param = { .sched_priority = MAX_RT_PRIO - 2 };
 
