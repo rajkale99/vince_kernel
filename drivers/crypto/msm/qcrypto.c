@@ -1317,12 +1317,6 @@ static void req_done(unsigned long data)
 		tfm_ctx = crypto_tfm_ctx(areq->tfm);
 		arsp->res = res;
 	}
-	cpu = raw_smp_processor_id();
-	pengine->irq_cpu = cpu;
-	if (pengine->first_engine) {
-		if (cpu  != cp->cpu_getting_irqs_frm_first_ce)
-			cp->cpu_getting_irqs_frm_first_ce = cpu;
-	}
 
 	spin_unlock_irqrestore(&cp->lock, flags);
 	_start_qcrypto_process(cp, pengine);
