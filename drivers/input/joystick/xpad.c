@@ -311,6 +311,7 @@ static const struct xpad_device {
 	{ 0x0e6f, 0x02ab, "PDP Controller for Xbox One", 0, XTYPE_XBOXONE },
 	{ 0x0e6f, 0x02a4, "PDP Wired Controller for Xbox One - Stealth Series", 0, XTYPE_XBOXONE },
 <<<<<<< HEAD
+<<<<<<< HEAD
 	{ 0x0e6f, 0x02a6, "PDP Wired Controller for Xbox One - Camo Series", 0, XTYPE_XBOXONE },
 =======
 	{ 0x0e6f, 0x0139, "Afterglow Prismatic Wired Controller", 0, XTYPE_XBOXONE },
@@ -330,6 +331,9 @@ static const struct xpad_device {
 >>>>>>> 849e8175a91e... Input: xpad - add support for PDP Xbox One controllers
 =======
 >>>>>>> 8caa7c8854e1... Input: xpad - add PDP device id 0x02a4
+=======
+	{ 0x0e6f, 0x02a6, "PDP Wired Controller for Xbox One - Camo Series", 0, XTYPE_XBOXONE },
+>>>>>>> 41d1c56f2de8... Input: xpad - add support for Xbox1 PDP Camo series gamepad
 	{ 0x0e6f, 0x0301, "Logic3 Controller", 0, XTYPE_XBOX360 },
 	{ 0x0e6f, 0x0346, "Rock Candy Gamepad for Xbox One 2016", 0, XTYPE_XBOXONE },
 	{ 0x0e6f, 0x0401, "Logic3 Controller", 0, XTYPE_XBOX360 },
@@ -819,7 +823,12 @@ static const struct xboxone_init_packet xboxone_init_packets[] = {
 =======
 	XBOXONE_INIT_PKT(0x0e6f, 0x02a4, xboxone_pdp_init1),
 	XBOXONE_INIT_PKT(0x0e6f, 0x02a4, xboxone_pdp_init2),
+<<<<<<< HEAD
 >>>>>>> 8caa7c8854e1... Input: xpad - add PDP device id 0x02a4
+=======
+	XBOXONE_INIT_PKT(0x0e6f, 0x02a6, xboxone_pdp_init1),
+	XBOXONE_INIT_PKT(0x0e6f, 0x02a6, xboxone_pdp_init2),
+>>>>>>> 41d1c56f2de8... Input: xpad - add support for Xbox1 PDP Camo series gamepad
 	XBOXONE_INIT_PKT(0x24c6, 0x541a, xboxone_rumblebegin_init),
 	XBOXONE_INIT_PKT(0x24c6, 0x542a, xboxone_rumblebegin_init),
 	XBOXONE_INIT_PKT(0x24c6, 0x543a, xboxone_rumblebegin_init),
