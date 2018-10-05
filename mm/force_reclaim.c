@@ -34,22 +34,21 @@ static DECLARE_DELAYED_WORK(swap_work, swap_fn);
 
 /* User knob to enable/disable process reclaim feature */
 static int enable_force_reclaim = 1;
-module_param_named(enable_force_reclaim, enable_force_reclaim, int,
-	S_IRUGO | S_IWUSR);
+module_param_named(enable_force_reclaim, enable_force_reclaim, int, 0664);
 
 /* The max number of pages tried to be reclaimed in a single run */
 static int per_swap_size = SWAP_CLUSTER_MAX * 32;
-module_param_named(per_swap_size, per_swap_size, int, S_IRUGO | S_IWUSR);
+module_param_named(per_swap_size, per_swap_size, int, 0664);
 
 static int reclaim_avg_efficiency;
 module_param_named(reclaim_avg_efficiency, reclaim_avg_efficiency,
-			int, S_IRUGO);
+			int, 0664);
 
 /* The vmpressure region where process reclaim operates */
 static unsigned long pressure_min = 50;
 static unsigned long pressure_max = 90;
-module_param_named(pressure_min, pressure_min, ulong, S_IRUGO | S_IWUSR);
-module_param_named(pressure_max, pressure_max, ulong, S_IRUGO | S_IWUSR);
+module_param_named(pressure_min, pressure_min, ulong, 0664);
+module_param_named(pressure_max, pressure_max, ulong, 0664);
 
 /*
  * Scheduling process reclaim workqueue unecessarily
@@ -61,10 +60,10 @@ module_param_named(pressure_max, pressure_max, ulong, S_IRUGO | S_IWUSR);
  * efficincy used as theshold for this.
  */
 static int swap_eff_win = 2;
-module_param_named(swap_eff_win, swap_eff_win, int, S_IRUGO | S_IWUSR);
+module_param_named(swap_eff_win, swap_eff_win, int, 0664);
 
 static int swap_opt_eff = 10;
-module_param_named(swap_opt_eff, swap_opt_eff, int, S_IRUGO | S_IWUSR);
+module_param_named(swap_opt_eff, swap_opt_eff, int, 0664);
 
 static atomic_t swap_opt_loop = ATOMIC_INIT(0);
 
