@@ -68,15 +68,6 @@ uint32_t g_ZL = 0;
 uint32_t g_ZR = 0;
 /* ASUS_BSP Eric ---*/
 
-/* ASUS_BSP Paul +++ */
-int g_jack_det_invert = 0;
-extern int g_DebugMode;
-/* ASUS_BSP Paul --- */
-
-/* ASUS_BSP Eric +++*/
-uint32_t g_ZL = 0;
-uint32_t g_ZR = 0;
-/* ASUS_BSP Eric ---*/
 
 static int det_extn_cable_en;
 module_param(det_extn_cable_en, int,
@@ -1597,11 +1588,6 @@ static void wcd_mbhc_swch_irq_handler(struct wcd_mbhc *mbhc)
 	/* ASUS_BSP Paul +++ */
 	//if (g_DebugMode)
 	//	goto exit;
-	/* ASUS_BSP Paul --- */
-
-	/* ASUS_BSP Paul +++ */
-	if (g_DebugMode)
-		goto exit;
 	/* ASUS_BSP Paul --- */
 
 	if (mbhc->mbhc_cb->micbias_enable_status)
