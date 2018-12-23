@@ -332,11 +332,6 @@ static void msm_restart_prepare(const char *cmd)
 					     restart_reason);
 		} else if (!strncmp(cmd, "edl", 3)) {
 			enable_emergency_dload_mode();
-
-		} else if (!strcmp(cmd, "other")) {
-			qpnp_pon_set_restart_reason(
-				PON_RESTART_REASON_OTHER);
-			__raw_writel(0x77665501, restart_reason);
 		} else {
 			__raw_writel(0x77665501, restart_reason);
 		}
